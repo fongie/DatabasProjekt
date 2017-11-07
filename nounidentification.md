@@ -41,3 +41,4 @@
 * Bilder på Omslag
 * Bilder på Manualer
 * Screenshots
+* När
