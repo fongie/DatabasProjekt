@@ -4,5 +4,8 @@
 * Så fort en produkt kommer in så ska bevakningarna som hör till tas bort (raderas ur databasen).
 * Hemsidan ska presentera ett medelbetyg på alla recensioner som räknas ut enligt en viss algoritm.
 
-anders regel
-Extra från Max
+### Unika relationer
+
+* Lagersaldo: Kombinationen av relationen till spelversion och relationen till butik är unik för lagersaldot
+* Produktbevakning: Kombinationen av epost och vilket lagersaldo den bevakar är unikt
+
