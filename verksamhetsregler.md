@@ -1,11 +1,14 @@
 # Verksamhetsregler för spelRvi databas
 
-* Om en ort (t ex Stockholm) har flera butiker, måste vi ha koll på adressen, t ex spelRvi på Hamngatan i Stockholm och spelRvi på Sveavägen i Stockholm. För butiker i mindre städer räcker det med stadens namn, t ex spelRvi Övik.  
-* Så fort en produkt kommer in så ska bevakningarna som hör till tas bort (raderas ur databasen).
-* Hemsidan ska presentera ett medelbetyg på alla recensioner som räknas ut enligt en viss algoritm.
+* Antingen en grupp eller en skapare gör ett spel
+* Man *måste* ha antingen en spelskapargrupp eller spelskapare, båda kan inte vara noll.
+* Man får inte bevaka en produkt som finns i lager
 
 ### Unika relationer
 
 * Lagersaldo: Kombinationen av relationen till spelversion och relationen till butik är unik för lagersaldot
 * Produktbevakning: Kombinationen av epost och vilket lagersaldo den bevakar är unikt
 
+
+Implementation-tips:
+- Testa databasen med olika data, t.ex spel som inte har serie, spel som har serie, spel som har spelseriegrupp, osv
