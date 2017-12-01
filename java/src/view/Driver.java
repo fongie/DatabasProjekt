@@ -28,12 +28,15 @@ public class Driver {
             switch (command.toLowerCase()) {
 
                 case "product":
+                    System.out.println("Calls database and shows products\n");
                     controller.showAllProducts();
                     break;
                 case "stock":
+                    System.out.println("Calls database and shows stores\n");
                     controller.notInStock();
                     break;
                 case "watch":
+                    System.out.println("Calls database and adds a product to watchlist\n");
                     controller.watchProduct();
                     break;
             }
