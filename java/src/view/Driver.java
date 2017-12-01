@@ -1,5 +1,7 @@
 package view;
 
+import controller.Controller;
+
 import java.util.Scanner;
 
 /**
@@ -13,23 +15,26 @@ public class Driver {
      */
     public static void main(String[] args) {
         Command commandlist = new Command();
+        Controller controller = new Controller();
+
         Scanner in = new Scanner(System.in);
         System.out.println("\n= = = = = = = = = =\nWelcome to SpelRvi!\n= = = = = = = = = =");
         commandlist.showCommandList();
         String command = "";
 
+        // loops until user inputs quit
         while (!command.equalsIgnoreCase("quit")) {
             command = in.nextLine();
             switch (command.toLowerCase()) {
 
                 case "product":
-                    System.out.println("Shows product");
+                    controller.showAllProducts();
                     break;
                 case "stock":
-                    System.out.println("Shows stock");
+                    controller.notInStock();
                     break;
                 case "watch":
-                    System.out.println("Shows watch");
+                    controller.watchProduct();
                     break;
             }
         }

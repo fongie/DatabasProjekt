@@ -10,6 +10,7 @@ public class Command {
         System.out.println("\nCommand list\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n" +
                 "product    => Show all products\n" +
                 "stock      => Show all stores that doesn't have a specific product in stock\n" +
-                "watch      => Add a product to your watch list\n");
+                "watch      => Add a product to your watch list\n" +
+                "\n(type quit to quit)\n");
     }
 }
