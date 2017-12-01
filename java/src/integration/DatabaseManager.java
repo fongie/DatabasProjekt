@@ -1,16 +1,22 @@
 package integration;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DatabaseManager {
+    DBConnection dbConnection = new DBConnection();
 
-    private void Connect () {
-        String driver = "com.mysql.jdbc.Driver";
+    private void showAll () {
+        String query;
+        ResultSet rs;
+        Connection con = dbConnection.getCon();
+        Statement stmt;
         try {
-            Class.forName(driver);
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        } catch (ClassNotFoundException e) {
+            stmt = con.createStatement();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 }
