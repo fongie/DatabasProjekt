@@ -1,4 +1,4 @@
-ISERT INTO Genre(namn)
+INSERT INTO Genre(namn)
 VALUES
 ('Adventure'),
 ('Sports'),
