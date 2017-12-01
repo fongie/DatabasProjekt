@@ -9,12 +9,12 @@ import java.sql.Statement;
 public class DBConnection {
     String driver = "net.ucanaccess.jdbc.UcanaccessDriver";
     String URL = "jdbc:ucanaccess://../databas/spelRvi.accdb";
-    String userID = "root";
-    String password = "secretpassword";
+    String userID = "";
+    String password = "password";
     Connection con;
 
     public DBConnection() {
-        connect();
+        startConnection();
     }
 
     public Connection getCon() {
@@ -31,6 +31,18 @@ public class DBConnection {
             e.printStackTrace();
         }
 
+    }
+    private void startConnection()
+    {
+        try {
+            Class.forName(driver).newInstance();
+            this.con = DriverManager.getConnection(URL, userID, password);
+            System.out.println("Connected to the database");
+            con.close();
+            System.out.println("Disconnected from database");
+        } catch (Exception e) {
+            System.out.println("NO CONNECTION =(");
+        }
     }
 
 }

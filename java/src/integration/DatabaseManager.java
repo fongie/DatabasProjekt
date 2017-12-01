@@ -15,7 +15,7 @@ public class DatabaseManager {
         Statement stmt = null;
 
         stmt = con.createStatement();
-        query = "SELECT *, FROM spelversion";
+        query = "SELECT * FROM spelversion";
         rs = stmt.executeQuery(query);
         while (rs.next())
         {
@@ -25,4 +25,5 @@ public class DatabaseManager {
         stmt.close();
 
     }
+
 }
