@@ -23,8 +23,8 @@ public class DBConnection {
 
     public void connect () {
         try {
-            Class.forName(driver);
-            con = DriverManager.getConnection(URL, userID, password);
+            Class.forName(this.driver);
+            this.con = DriverManager.getConnection(URL, userID, password);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
