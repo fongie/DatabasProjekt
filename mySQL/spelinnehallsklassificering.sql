@@ -29,7 +29,7 @@ VALUES
 ('Alcohol Reference',21),
 ('Language',21),
 ('Partial Nudity',21),
-('Use of Drogs',21),
+('Use of Drugs',21),
 ('Use of Alcohol',21),
 ('Use of Alcohol',22),
 ('Language',22),
