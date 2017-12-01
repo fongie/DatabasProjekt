@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class DatabaseManager {
     DBConnection dbConnection = new DBConnection();
 
-    private void showAll () throws SQLException {
+    public void showAll () throws SQLException {
         String query;
         ResultSet rs;
         Connection con = dbConnection.getCon();

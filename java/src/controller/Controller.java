@@ -2,6 +2,8 @@ package controller;
 
 import integration.DatabaseManager;
 
+import java.sql.SQLException;
+
 /**
  * Created by Anders on 2017-12-01.
  */
@@ -11,7 +13,7 @@ public class Controller {
     /**
      * Show all products
      */
-    public void showAllProducts() {
+    public void showAllProducts() throws SQLException {
         databaseManager.showAll();
     }
 

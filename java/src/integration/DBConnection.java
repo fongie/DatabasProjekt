@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class DBConnection {
     String driver = "net.ucanaccess.jdbc.UcanaccessDriver";
-    String URL = "jdbc:ucanaccess://../access/spelRvi.accdb";
+    String URL = "jdbc:ucanaccess://../databas/spelRvi.accdb";
     String userID = "root";
     String password = "secretpassword";
     Connection con;
