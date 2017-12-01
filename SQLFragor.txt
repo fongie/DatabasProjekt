@@ -1,0 +1,47 @@
+-- Fr1
+
+SELECT namn, sträckkod, pris, ort
+FROM (((Butik INNER JOIN Lagersaldo ON Butik.butiksID = Lagersaldo.butiksID)
+INNER JOIN Spelversion ON Lagersaldo.spelversion = Spelversion.sträckkod)
+INNER JOIN Spel ON Spelversion.spel = Spel.spelID)
+WHERE ort = "Örebro" AND antal > 0;
+
+
+-- Fr2
+
+SELECT Butik.adress
+FROM ((Spel
+INNER JOIN SpelVersion ON Spel.spelID = SpelVersion.spel)
+INNER JOIN LagerSaldo ON SpelVersion.sträckkod = LagerSaldo.spelversion)
+INNER JOIN Butik ON LagerSaldo.butiksID = Butik.butiksID
+WHERE namn ="Serious Sam 3: BFE" AND LagerSaldo.antal = 0;
+
+-- Fr3
+
+SELECT epost
+FROM Produktbevakning LEFT JOIN LagerSaldo ON Produktbevakning.lagersaldoID = Lagersaldo.lagersaldoID
+GROUP BY epost
+HAVING COUNT(*) > 2;
+
+-- Fr4
+
+SELECT namn, Spelserie.plattform
+FROM Spelserie LEFT JOIN Spelversion ON Spelserie.spelserieID = Spelversion.spelserie
+WHERE Spelversion.släppdatum > NOW();
+
+-- Fr5
+
+SELECT Spelseriegrupp.namn, COUNT(*) AS AntalProdukter
+FROM (SpelVersion
+INNER JOIN Spelserie ON SpelVersion.spelserie = Spelserie.spelserieID)
+INNER JOIN SpelserieGrupp ON Spelserie.spelseriegrupp = SpelserieGrupp.namn
+GROUP BY Spelseriegrupp.namn ;
+
+
+-- Fr6
+
+SELECT namn, sträckkod, plattform, antalSålda
+FROM Spel
+INNER JOIN Spelversion
+ON Spel.spelID = Spelversion.spel
+WHERE antalSålda > 1000 AND spelserie IS NULL
