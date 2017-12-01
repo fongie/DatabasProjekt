@@ -1,43 +1,43 @@
 package view;
 
+import controller.Controller;
+
 import java.util.Scanner;
 
 /**
  * A system that works with our SpelRvi database
  */
 public class Driver {
-
-    // lists available commands
-    private static void showCommandList() {
-        System.out.println("\nCommand list\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n" +
-                "product    = Show all products\n" +
-                "stock      = Show all stores that do NOT have a product in stock.\n" +
-                "watch      = Add a product to your watch list\n");
-    }
-
     /**
      * System menu
      *
      * @param args
      */
     public static void main(String[] args) {
+        Command commandlist = new Command();
+        Controller controller = new Controller();
+
         Scanner in = new Scanner(System.in);
         System.out.println("\n= = = = = = = = = =\nWelcome to SpelRvi!\n= = = = = = = = = =");
-        showCommandList();
+        commandlist.showCommandList();
         String command = "";
 
+        // loops until user inputs quit
         while (!command.equalsIgnoreCase("quit")) {
             command = in.nextLine();
             switch (command.toLowerCase()) {
 
                 case "product":
-                    System.out.println("Shows product");
+                    System.out.println("Calls database and shows products\n");
+                    controller.showAllProducts();
                     break;
                 case "stock":
-                    System.out.println("Shows stock");
+                    System.out.println("Calls database and shows stores\n");
+                    controller.notInStock();
                     break;
                 case "watch":
-                    System.out.println("Shows watch");
+                    System.out.println("Calls database and adds a product to watchlist\n");
+                    controller.watchProduct();
                     break;
             }
         }
