@@ -1,4 +1,4 @@
-INSERT INTO Innehållsklassificering(namn, beskrivning) 
+INSERT INTO Innehallsklassificering(namn, beskrivning) 
 VALUES
 ('Alcohol Reference','Reference to and/or images of alcoholic beverages'),
 ('Animated Blood','Discolored and/or unrealistic depictions of blood'),
