@@ -33,20 +33,19 @@ public class Driver {
         // loops until user inputs quit
         while (!command.equalsIgnoreCase("quit")) {
             command = in.nextLine();
-            switch (command.toLowerCase()) {
+            String s = command.toLowerCase();
+            if (s.equals("product")) {
+                System.out.println("Calls database and shows products\n");
+                controller.showAllProducts();
 
-                case "product":
-                    System.out.println("Calls database and shows products\n");
-                    controller.showAllProducts();
-                    break;
-                case "stock":
-                    System.out.println("Calls database and shows stores\n");
-                    controller.notInStock();
-                    break;
-                case "watch":
-                    System.out.println("Calls database and adds a product to watchlist\n");
-                    controller.watchProduct();
-                    break;
+            } else if (s.equals("stock")) {
+                System.out.println("Calls database and shows stores\n");
+                controller.notInStock();
+
+            } else if (s.equals("watch")) {
+                System.out.println("Calls database and adds a product to watchlist\n");
+                controller.watchProduct();
+
             }
         }
     }

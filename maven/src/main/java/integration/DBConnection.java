@@ -1,9 +1,9 @@
 package integration;
 
+//import java.net.
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class DBConnection {
     String driver = "net.ucanaccess.jdbc.UcanaccessDriver";

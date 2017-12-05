@@ -12,6 +12,7 @@
         <dependency>
             <groupId>net.sf.ucanaccess</groupId>
             <artifactId>ucanaccess</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
