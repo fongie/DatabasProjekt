@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
     String driver = "net.ucanaccess.jdbc.UcanaccessDriver";
-    String URL = "jdbc:ucanaccess:///Users/ocean/Desktop/Datalagring/Projekt/DatabasProjekt/access/spelRvi.accdb";
+    String URL = "jdbc:ucanaccess:///Users/Anders/KTH Datateknik/Datalagring IV1351/project/DatabasProjekt/access/spelRvi.accdb";
     String userID = "";
     String password = "password";
     Connection con;
