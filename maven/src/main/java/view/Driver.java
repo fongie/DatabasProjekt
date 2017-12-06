@@ -16,11 +16,6 @@ public class Driver {
      */
     public static void main(String[] args) throws SQLException, IOException {
 
-        /*  TO GET PATH
-
-            String path = new java.io.File(".").getCanonicalPath();
-            System.out.println(path);
-         */
 
         Command commandlist = new Command();
         Controller controller = new Controller();
@@ -34,15 +29,15 @@ public class Driver {
         while (!command.equalsIgnoreCase("quit")) {
             command = in.nextLine();
             String s = command.toLowerCase();
-            if (s.equals("product")) {
-                System.out.println("Calls database and shows products\n");
+            if (s.equals("1")) {
+                System.out.println("All products:\n");
                 controller.showAllProducts();
 
-            } else if (s.equals("stock")) {
+            } else if (s.equals("2")) {
                 System.out.println("Calls database and shows stores\n");
                 controller.notInStock();
 
-            } else if (s.equals("watch")) {
+            } else if (s.equals("3")) {
                 System.out.println("Calls database and adds a product to watchlist\n");
                 controller.watchProduct();
 

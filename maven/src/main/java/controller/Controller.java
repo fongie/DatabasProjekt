@@ -20,12 +20,14 @@ public class Controller {
     /**
      * Show all stores that doesn't have a specific product in stock
      */
-    public void notInStock(){
+    public void notInStock() throws SQLException {
+        databaseManager.notInStock();
     }
 
     /**
      * Add a new product to your watchlist
      */
-    public void watchProduct(){
+    public void watchProduct() throws SQLException {
+        databaseManager.watchProduct();
     }
 }

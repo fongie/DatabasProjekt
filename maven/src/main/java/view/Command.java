@@ -10,9 +10,9 @@ public class Command {
      */
     void showCommandList() {
         System.out.println("\nCommand list\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n" +
-                "product    => Show all products\n" +
-                "stock      => Show all stores that doesn't have a specific product in stock\n" +
-                "watch      => Add a product to your watch list\n" +
+                "1 => Show all products\n" +
+                "2 => Show all stores that doesn't have a specific product in stock\n" +
+                "3 1=> Add a product to your watch list\n" +
                 "\n(type quit to quit)\n");
     }
 }
