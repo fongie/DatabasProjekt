@@ -4,38 +4,74 @@ package integration;
  * Created by Anders on 2017-12-05.
  */
 public class Format {
-    private String name;
-    private String description;
-    private String butik;
+    private String first;
+    private String second;
+    private String third;
+    private String fourth;
+
+
+    /**
+     * Four columns
+     * @param first
+     * @param second
+     * @param third
+     * @param fourth
+     */
+    public Format(String first, String second, String third, String fourth) {
+        this.first = first;
+        this.second = second;
+        this.third = third;
+        this.fourth = fourth;
+    }
+
+    /**
+     * Three columns
+     * @param first
+     * @param third
+     * @param third
+     */
+    public Format(String first, String second, String third){
+        this.first = first;
+        this.second = second;
+        this.third = third;
+    }
 
     /**
      * Two columns
-     * @param name
-     * @param description
+     * @param first
+     * @param second
      */
-    public Format(String name, String description) {
-        this.name = name;
-        this.description = description;
+    public Format(String first, String second) {
+        this.first = first;
+        this.second = second;
     }
 
     /**
      * One column
-     * @param butik
+     * @param first
      */
-    public Format(String butik) {
-        this.butik = butik;
+    public Format(String first) {
+        this.first = first;
     }
 
-    public String getButik() {
-        return butik;
+
+    /**
+     * Getters
+     * @return
+     */
+    public String getFirst() {
+        return first;
     }
 
-    public String getName() {
-        return name;
+    public String getSecond() {
+        return second;
     }
 
-    public String getDescription() {
-        return description;
+    public String getThird() {
+        return third;
     }
 
+    public String getFourth() {
+        return fourth;
+    }
 }
