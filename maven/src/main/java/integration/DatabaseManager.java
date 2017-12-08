@@ -83,7 +83,6 @@ public class DatabaseManager {
 
     public void watchProduct () throws SQLException {
         String query;
-        String query2;
         String mail;
         String store;
         String game;
