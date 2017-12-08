@@ -6,6 +6,92 @@ import java.util.List;
 
 public class DatabaseManager {
     private DBConnection dbConnection = new DBConnection();
+    
+    ArrayList<SpelVersion> fetchProducts(String spelnamn) {
+    	ArrayList<SpelVersion> l = new ArrayList<SpelVersion>();
+    	
+    	String query;
+        ResultSet rs;
+        Connection con = dbConnection.getCon();
+
+        try {
+        query = "SELECT SpelVersion.plattform, Spelserie.namn AS spelserie FROM Spel INNER JOIN SpelVersion ON Spel.spelID = SpelVersion.spel LEFT JOIN Spelserie ON SpelVersion.spelserie = Spelserie.spelserieID WHERE Spel.namn = ?";
+;
+        PreparedStatement stmt = con.prepareStatement(query);
+        stmt.setString(1, spelnamn);
+        rs = stmt.executeQuery();
+        
+        while (rs.next()) {
+        	String plattform = rs.getString("plattform");
+        	String spelserie = rs.getString("spelserie");
+        	SpelVersion v = new SpelVersion(plattform, spelserie);
+        	
+        	l.add(v);
+        }
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+        
+    	return l;
+
+    }
+    /** Get all SPEL entries from database containing what we want for our XML stuff
+     *
+     * @return ArrayList of SpelEntries with the necessery information
+     */
+    public ArrayList<SpelEntry> getSpel() {
+    	
+    	ArrayList<SpelEntry> l = new ArrayList<SpelEntry>();
+    	String query;
+        ResultSet rs;
+        Connection con = dbConnection.getCon();
+
+        try {
+        query = "SELECT namn, Spelskapare.namn AS spelskapare FROM Spel INNER JOIN Spelskapare ON Spel.spelskaparperson = Spelskapare.spelskaparID";
+        Statement stmt = con.createStatement();
+        rs = stmt.executeQuery(query);
+        
+        while (rs.next()) {
+        	
+        	String namn = rs.getString("namn");
+        	String spelskapare = rs.getString("spelskapare");
+        	ArrayList<String> genre = getGenresFor(namn);
+        
+        	SpelEntry e = new SpelEntry(namn, spelskapare, genre, this);
+        	
+        	l.add(e);
+        }
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+    	
+    	return l;
+    }
+    
+    private ArrayList<String> getGenresFor(String spelnamn) {
+    	ArrayList<String> l = new ArrayList<String>();
+    	
+    	String query;
+        ResultSet rs;
+        Connection con = dbConnection.getCon();
+
+        try {
+        query = "SELECT Genre.namn AS genre FROM Spel INNER JOIN SpelGenre ON Spel.spelid = SpelGenre.spel INNER JOIN Genre ON SpelGenre.genre = Genre.namn WHERE Spel.namn = ?";
+;
+        PreparedStatement stmt = con.prepareStatement(query);
+        stmt.setString(1, spelnamn);
+        rs = stmt.executeQuery();
+        
+        while (rs.next()) {
+        	l.add(rs.getString("genre"));
+        
+        }
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+    	
+    	return l;
+    }
 
     /**
      * Show all products

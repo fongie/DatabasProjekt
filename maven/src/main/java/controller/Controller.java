@@ -1,6 +1,7 @@
 package controller;
 
 import integration.DatabaseManager;
+import model.XMLProducer;
 
 import java.sql.SQLException;
 
@@ -30,4 +31,14 @@ public class Controller {
     public void watchProduct() throws SQLException {
         databaseManager.watchProduct();
     }
+
+    /** Produce XML our way
+     
+     */
+	public void produceXML() {
+		// TODO Auto-generated method stub
+		XMLProducer xml = new XMLProducer(databaseManager);
+		xml.produceXML();
+		
+	}
 }

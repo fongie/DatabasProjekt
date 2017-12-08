@@ -41,6 +41,9 @@ public class Driver {
                 System.out.println("Calls database and adds a product to watchlist\n");
                 controller.watchProduct();
 
+            } else if (s.equals("4")) {
+            	System.out.println("XML producer shows:");
+            	controller.produceXML();
             }
         }
     }
