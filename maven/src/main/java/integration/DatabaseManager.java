@@ -102,6 +102,7 @@ public class DatabaseManager {
         ResultSet rs;
         Connection con = dbConnection.getCon();
 
+        // query to get namn, plattform, pris
         query = "SELECT namn, plattform, pris FROM Spel INNER JOIN Spelversion ON Spel.spelID = Spelversion.spel";
         Statement stmt = con.createStatement();
         rs = stmt.executeQuery(query);
@@ -141,8 +142,9 @@ public class DatabaseManager {
         System.out.println("To which platform: ");
         platform = in.nextLine();
 
-        // get the adress of a store that doesn't have any copies of a specific game in stock
+        // query to get adress and butik
         query = "SELECT adress FROM  Butik INNER JOIN Lagersaldo ON Butik.butiksID=Lagersaldo.lagersaldoID INNER JOIN Spelversion ON Lagersaldo.spelversion=Spelversion.sträckkod INNER JOIN Spel ON SpelVersion.spel=Spel.spelID WHERE namn = ? AND plattform = ?";
+
 
         // use prepared statment to insert user input before execution of query
         PreparedStatement stmt = con.prepareStatement(query);
@@ -170,8 +172,10 @@ public class DatabaseManager {
     public void watchProduct () throws SQLException {
         String query;
         String mail;
+        String lagersaldoID = "";
         String store;
         String game;
+        String platform;
         ResultSet rs;
         Connection con = dbConnection.getCon();
 
@@ -181,25 +185,77 @@ public class DatabaseManager {
         mail = in.nextLine();
         System.out.println("Enter the address of the store");
         store = in.nextLine();
-        System.out.println("Enter the games barcode");
+        System.out.println("Enter name of the game");
         game = in.nextLine();
+        System.out.println("Enter name of the plattform");
+        platform = in.nextLine();
 
-        // get the adress of a store that doesn't have any copies of a specific game in stock
-        query = "INSERT INTO Produktbevakning (e-post, lagersaldoID) VALUES(?, (SELECT lagersaldoID FROM ((Lagersaldo INNER JOIN Produktbevakning ON Lagersaldo.lagersaldoID=Produktbevakning.lagersaldoID) INNER JOIN Butik ON Lagersaldo.butiksID=Butik.butiksID) WHERE adress = ? AND spelversion = ?));";
+        // query to get lagersaldoID
+        query = "SELECT lagersaldoID FROM ((Lagersaldo INNER JOIN Spelversion ON LagerSaldo.spelversion=SpelVersion.sträckkod) INNER JOIN Spel ON SpelVersion.spel=Spel.spelID) INNER JOIN Butik ON LagerSaldo.butiksID=Butik.butiksID WHERE namn = ? AND adress = ? AND plattform = ?";
+
 
         // use prepared statment to insert user input before execution of query
         PreparedStatement stmt = con.prepareStatement(query);
-        stmt.setString(1, mail);
+        stmt.setString(1, game);
         stmt.setString(2, store);
-        stmt.setString(3, game);
+        stmt.setString(3, platform);
         rs = stmt.executeQuery();
 
-        //TODO något är fel, tror att det är queryn?
-
-/* Vi kanske behöver/borde läsa in det bevakninga via ett ett separat menyval?
 
         List<Format> formatList = new ArrayList<Format>();
-        formatList.add(new Format("Bevakningar"));
+        formatList.add(new Format("LagesaldoID"));
+
+        String template = "%-45s%n";
+
+        for (Format format : formatList) {
+            System.out.printf(template, format.getFirst());
+
+            while (rs.next())
+            {
+                System.out.printf(template, rs.getString("lagersaldoID"));
+                lagersaldoID = rs.getString("lagersaldoID");
+            }
+        }
+
+        // lägg till i produktbevakning
+        addToWatchlist(lagersaldoID, mail);
+
+        stmt.close();
+    }
+
+    // helper method add to watch list
+    private void addToWatchlist(String lagersaldoID, String mail) throws SQLException {
+
+        // declaration
+        String query;
+        ResultSet rs;
+        Connection con = dbConnection.getCon();
+
+        // query to insert
+        query = "INSERT INTO Produktbevakning (Epost, lagersaldoID) VALUES (?, ?)";
+        PreparedStatement stmt = con.prepareStatement(query);
+        stmt.setString(1, mail);
+        stmt.setString(2, lagersaldoID);
+        stmt.executeUpdate();
+
+        showWatchList();
+        stmt.close();
+
+    }
+
+    private void showWatchList() throws SQLException{
+
+        String query;
+        ResultSet rs;
+        Connection con = dbConnection.getCon();
+
+        // query
+        query = "SELECT * FROM Produktbevakning";
+        Statement stmt = con.createStatement();
+        rs = stmt.executeQuery(query);
+
+        List<Format> formatList = new ArrayList<Format>();
+        formatList.add(new Format("Produktbevakningar", "LagerSaldoID"));
 
         String template = "%-45s %-45s%n";
 
@@ -208,11 +264,9 @@ public class DatabaseManager {
 
             while (rs.next())
             {
-                System.out.printf(template, rs.getString("epost"));
+                System.out.printf(template, rs.getString("Epost"),rs.getString("lagersaldoID"));
             }
         }
-*/
-        stmt.close();
     }
 }
 
