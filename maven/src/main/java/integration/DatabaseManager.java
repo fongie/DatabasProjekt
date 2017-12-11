@@ -5,103 +5,53 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Handles all database queries (and some view)
+ */
 public class DatabaseManager {
     private DBConnection dbConnection = new DBConnection();
 
     public DatabaseManager() throws IOException {
+        System.out.println("Problem with the database");
     }
 
     ArrayList<SpelVersion> fetchProducts(String spelnamn) {
-    	ArrayList<SpelVersion> l = new ArrayList<SpelVersion>();
-    	
-    	String query;
+        ArrayList<SpelVersion> l = new ArrayList<SpelVersion>();
+
+        String query;
         ResultSet rs;
         Connection con = dbConnection.getCon();
 
         try {
-        query = "SELECT SpelVersion.plattform, Spelserie.namn AS spelserie FROM Spel INNER JOIN SpelVersion ON Spel.spelID = SpelVersion.spel LEFT JOIN Spelserie ON SpelVersion.spelserie = Spelserie.spelserieID WHERE Spel.namn = ?";
-;
-        PreparedStatement stmt = con.prepareStatement(query);
-        stmt.setString(1, spelnamn);
-        rs = stmt.executeQuery();
-        
-        while (rs.next()) {
-        	String plattform = rs.getString("plattform");
-        	String spelserie = rs.getString("spelserie");
-        	SpelVersion v = new SpelVersion(plattform, spelserie);
-        	
-        	l.add(v);
-        }
+            query = "SELECT SpelVersion.plattform, Spelserie.namn AS spelserie FROM Spel INNER JOIN SpelVersion ON Spel.spelID = SpelVersion.spel LEFT JOIN Spelserie ON SpelVersion.spelserie = Spelserie.spelserieID WHERE Spel.namn = ?";
+            ;
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, spelnamn);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                String plattform = rs.getString("plattform");
+                String spelserie = rs.getString("spelserie");
+                SpelVersion v = new SpelVersion(plattform, spelserie);
+
+                l.add(v);
+            }
         } catch (Exception e) {
-        	e.printStackTrace();
+            e.printStackTrace();
         }
-        
-    	return l;
+
+        return l;
 
     }
-    /** Get all SPEL entries from database containing what we want for our XML stuff
-     *
-     * @return ArrayList of SpelEntries with the necessery information
-     */
-    public ArrayList<SpelEntry> getSpel() {
-    	
-    	ArrayList<SpelEntry> l = new ArrayList<SpelEntry>();
-    	String query;
-        ResultSet rs;
-        Connection con = dbConnection.getCon();
 
-        try {
-        query = "SELECT namn, Spelskapare.namn AS spelskapare FROM Spel INNER JOIN Spelskapare ON Spel.spelskaparperson = Spelskapare.spelskaparID";
-        Statement stmt = con.createStatement();
-        rs = stmt.executeQuery(query);
-        
-        while (rs.next()) {
-        	
-        	String namn = rs.getString("namn");
-        	String spelskapare = rs.getString("spelskapare");
-        	ArrayList<String> genre = getGenresFor(namn);
-        
-        	SpelEntry e = new SpelEntry(namn, spelskapare, genre, this);
-        	
-        	l.add(e);
-        }
-        } catch (Exception e) {
-        	e.printStackTrace();
-        }
-    	
-    	return l;
-    }
-    
-    private ArrayList<String> getGenresFor(String spelnamn) {
-    	ArrayList<String> l = new ArrayList<String>();
-    	
-    	String query;
-        ResultSet rs;
-        Connection con = dbConnection.getCon();
-
-        try {
-        query = "SELECT Genre.namn AS genre FROM Spel INNER JOIN SpelGenre ON Spel.spelid = SpelGenre.spel INNER JOIN Genre ON SpelGenre.genre = Genre.namn WHERE Spel.namn = ?";
-;
-        PreparedStatement stmt = con.prepareStatement(query);
-        stmt.setString(1, spelnamn);
-        rs = stmt.executeQuery();
-        
-        while (rs.next()) {
-        	l.add(rs.getString("genre"));
-        
-        }
-        } catch (Exception e) {
-        	e.printStackTrace();
-        }
-    	
-    	return l;
-    }
 
     /**
      * Show all products
+     * This method performs task 7
+     *
      * @throws SQLException
      */
-    public void showAll () throws SQLException {
+    public void showAll() throws SQLException {
         String query;
         ResultSet rs;
         Connection con = dbConnection.getCon();
@@ -111,7 +61,7 @@ public class DatabaseManager {
         Statement stmt = con.createStatement();
         rs = stmt.executeQuery(query);
 
-
+        // this section formats and prints the result
         List<Format> formatList = new ArrayList<Format>();
         formatList.add(new Format("Name", "Platform", "Price"));
 
@@ -119,8 +69,7 @@ public class DatabaseManager {
 
         for (Format format : formatList) {
             System.out.printf(template, format.getSecond(), format.getSecond(), format.getThird());
-            while (rs.next())
-            {
+            while (rs.next()) {
                 System.out.printf(template, rs.getString("namn"), rs.getString("plattform"), rs.getString("pris") + "kr");
             }
         }
@@ -130,6 +79,7 @@ public class DatabaseManager {
 
     /**
      * Show all stores that doesn't have a specific product in stock
+     * This method performs task 8
      * @throws SQLException
      */
     public void notInStock() throws SQLException {
@@ -156,7 +106,7 @@ public class DatabaseManager {
         stmt.setString(2, platform);
         rs = stmt.executeQuery();
 
-
+        // this section formats and prints the result
         List<Format> formatList = new ArrayList<Format>();
         formatList.add(new Format("Adress"));
 
@@ -165,24 +115,30 @@ public class DatabaseManager {
         for (Format format : formatList) {
             System.out.printf(template, format.getFirst());
 
-            while (rs.next())
-            {
+            while (rs.next()) {
                 System.out.printf(template, rs.getString("adress"));
             }
         }
         stmt.close();
     }
 
-    public void watchProduct () throws SQLException {
+    /**
+     * This method gets lagersaldoID and starts the process of adding to watch list
+     * (Användaren anger en produkt genom att mata in ett namn på ett spel och namnet på den plattform som spelet hör till.
+     * Det motsvarar en produkt i uppgiftskraven)
+     * This method performs task 9
+     * @throws SQLException
+     */
+    public void watchProduct() throws SQLException {
         String query;
         String mail;
-        String lagersaldoID = "";
-        int antal = 0;
         String store;
         String game;
         String platform;
         ResultSet rs;
         Connection con = dbConnection.getCon();
+        String lagersaldoID = "";
+        int antal = 0;
 
         // get user input
         java.util.Scanner in = new java.util.Scanner(System.in);
@@ -207,6 +163,7 @@ public class DatabaseManager {
         rs = stmt.executeQuery();
 
 
+        // this section formats and prints the result
         List<Format> formatList = new ArrayList<Format>();
         formatList.add(new Format("LagesaldoID", "Antal"));
 
@@ -215,21 +172,21 @@ public class DatabaseManager {
         for (Format format : formatList) {
             System.out.printf(template, format.getFirst(), format.getSecond());
 
-            while (rs.next())
-            {
+            while (rs.next()) {
                 lagersaldoID = rs.getString("lagersaldoID");
+                // we also save the number of products in stock in the variable antal
                 antal = rs.getInt("antal");
-
                 System.out.printf(template, rs.getString("lagersaldoID"), rs.getString("antal"));
             }
         }
 
         // lägg till i produktbevakning
-        if (antal != 0){
+        if (antal == 0) {
             addToWatchlist(lagersaldoID, mail);
         }
+        // informs user that the number of products in stock isn't 0
         else
-            System.out.println("Du kan inte bevaka spel som redan finns i lager");
+            System.out.println("\nDu kan inte bevaka spel som redan finns i lager");
 
         stmt.close();
     }
@@ -239,7 +196,6 @@ public class DatabaseManager {
 
         // declaration
         String query;
-        ResultSet rs;
         Connection con = dbConnection.getCon();
 
         // query to insert
@@ -254,17 +210,19 @@ public class DatabaseManager {
 
     }
 
-    private void showWatchList() throws SQLException{
+    // show the watch list
+    private void showWatchList() throws SQLException {
 
         String query;
         ResultSet rs;
         Connection con = dbConnection.getCon();
 
-        // query
+        // select all from produktbevakning
         query = "SELECT * FROM Produktbevakning";
         Statement stmt = con.createStatement();
         rs = stmt.executeQuery(query);
 
+        // formats the printout
         List<Format> formatList = new ArrayList<Format>();
         formatList.add(new Format("Produktbevakningar", "LagerSaldoID"));
 
@@ -273,11 +231,79 @@ public class DatabaseManager {
         for (Format format : formatList) {
             System.out.printf(template, format.getFirst(), format.getSecond());
 
-            while (rs.next())
-            {
-                System.out.printf(template, rs.getString("Epost"),rs.getString("lagersaldoID"));
+            while (rs.next()) {
+                System.out.printf(template, rs.getString("Epost"), rs.getString("lagersaldoID"));
             }
         }
+    }
+
+
+
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    *                                                            *
+    *  THIS CODE IS A SIDE QUEST THAT WE MADE TO CREATE OUR XML  *
+    *                                                            *
+    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    /**
+     * Get all SPEL entries from database containing what we want for our XML stuff
+     *
+     * @return ArrayList of SpelEntries with the necessery information
+     */
+    public ArrayList<SpelEntry> getSpel() {
+
+        ArrayList<SpelEntry> l = new ArrayList<SpelEntry>();
+        String query;
+        ResultSet rs;
+        Connection con = dbConnection.getCon();
+
+        try {
+            query = "SELECT namn, Spelskapare.namn AS spelskapare FROM Spel INNER JOIN Spelskapare ON Spel.spelskaparperson = Spelskapare.spelskaparID";
+            Statement stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+
+                String namn = rs.getString("namn");
+                String spelskapare = rs.getString("spelskapare");
+                ArrayList<String> genre = getGenresFor(namn);
+
+                SpelEntry e = new SpelEntry(namn, spelskapare, genre, this);
+
+                l.add(e);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return l;
+    }
+
+    // gets name of a genre
+    private ArrayList<String> getGenresFor(String spelnamn) {
+        ArrayList<String> l = new ArrayList<String>();
+
+        String query;
+        ResultSet rs;
+        Connection con = dbConnection.getCon();
+
+        try {
+            query = "SELECT Genre.namn AS genre FROM Spel INNER JOIN SpelGenre ON Spel.spelid = SpelGenre.spel INNER JOIN Genre ON SpelGenre.genre = Genre.namn WHERE Spel.namn = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, spelnamn);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                l.add(rs.getString("genre"));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return l;
     }
 }
 

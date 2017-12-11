@@ -2,6 +2,10 @@ package integration;
 
 import java.util.ArrayList;
 
+/**
+ * This code is used when generating our XML
+ * Represents a row in table spel
+ */
 public class SpelEntry {
 
 	String namn;

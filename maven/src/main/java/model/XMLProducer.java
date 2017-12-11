@@ -7,6 +7,10 @@ import integration.DatabaseManager;
 import integration.SpelEntry;
 import integration.SpelVersion;
 
+/**
+ * This code is used when generating our XML
+ * Produces XML
+ */
 public class XMLProducer {
 	DatabaseManager db;
 	
@@ -53,7 +57,5 @@ public class XMLProducer {
 			System.out.println("\t</Spel>");
 		}
 		System.out.println("</spelRvi>");
-
 	}
-
 }

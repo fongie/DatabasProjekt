@@ -1,7 +1,8 @@
 package integration;
 
 /**
- * Created by Anders on 2017-12-05.
+ * This class helps with the formatting of our output to users
+ * U can use one, two, three or four columns
  */
 public class Format {
     private String first;

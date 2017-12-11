@@ -1,5 +1,9 @@
 package integration;
 
+/**
+ * This code is used when generating our XML
+ * Represents a row in table spelversion
+ */
 public class SpelVersion {
 	
 	String plattform;

@@ -13,12 +13,7 @@ import java.sql.SQLException;
 public class DBConnection {
     String driver = "net.ucanaccess.jdbc.UcanaccessDriver";
 
-    /*
-        Max URL:
-        String URL = "jdbc:ucanaccess:///home/max/Skola/Datateknik/Databaser/DatabasProjekt/access/spelRvi.accdb";
-        Anders URL:
-        String URL = "jdbc:ucanaccess:///Users/Anders/KTH Datateknik/Datalagring IV1351/project/DatabasProjekt/access/spelRvi.accdb";
-     */
+    // gets the relative path of the project and gets the database
     String path = new java.io.File(".").getCanonicalPath();
     String URL = "jdbc:ucanaccess:///" + path + "/src/main/java/database/spelRvi.accdb";
     String userID = "";
@@ -34,18 +29,7 @@ public class DBConnection {
         return con;
     }
 
-    public void connect() {
-        try {
-            Class.forName(this.driver);
-            this.con = DriverManager.getConnection(URL, userID, password);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            System.out.println("SQLException");
-            e.printStackTrace();
-        }
-    }
-
+    // initiate database connection
     private void startConnection() {
         try {
             Class.forName(driver).newInstance();
@@ -58,7 +42,6 @@ public class DBConnection {
             e.printStackTrace();
         }
     }
-
 }
 
 
