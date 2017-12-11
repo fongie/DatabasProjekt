@@ -28,3 +28,6 @@ basex -ixml/spelRvi.xml xml/produkterPerPlattform.xq > xml/produkterPerPlattform
 } > xml/xquery.txt
 
 cp xml/xquery.txt redovisning/xquery.txt
+
+cp -r maven redovisning
+cp access/spelRvi.accdb redovisning
