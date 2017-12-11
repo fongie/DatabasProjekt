@@ -3,6 +3,7 @@ package controller;
 import integration.DatabaseManager;
 import model.XMLProducer;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 /**
@@ -10,6 +11,9 @@ import java.sql.SQLException;
  */
 public class Controller {
     private DatabaseManager databaseManager = new DatabaseManager();
+
+    public Controller() throws IOException {
+    }
 
     /**
      * Show all products

@@ -1,12 +1,16 @@
 package integration;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseManager {
     private DBConnection dbConnection = new DBConnection();
-    
+
+    public DatabaseManager() throws IOException {
+    }
+
     ArrayList<SpelVersion> fetchProducts(String spelnamn) {
     	ArrayList<SpelVersion> l = new ArrayList<SpelVersion>();
     	
@@ -173,6 +177,7 @@ public class DatabaseManager {
         String query;
         String mail;
         String lagersaldoID = "";
+        int antal = 0;
         String store;
         String game;
         String platform;
@@ -191,7 +196,7 @@ public class DatabaseManager {
         platform = in.nextLine();
 
         // query to get lagersaldoID
-        query = "SELECT lagersaldoID FROM ((Lagersaldo INNER JOIN Spelversion ON LagerSaldo.spelversion=SpelVersion.sträckkod) INNER JOIN Spel ON SpelVersion.spel=Spel.spelID) INNER JOIN Butik ON LagerSaldo.butiksID=Butik.butiksID WHERE namn = ? AND adress = ? AND plattform = ?";
+        query = "SELECT lagersaldoID, antal FROM ((Lagersaldo INNER JOIN Spelversion ON LagerSaldo.spelversion=SpelVersion.sträckkod) INNER JOIN Spel ON SpelVersion.spel=Spel.spelID) INNER JOIN Butik ON LagerSaldo.butiksID=Butik.butiksID WHERE namn = ? AND adress = ? AND plattform = ?";
 
 
         // use prepared statment to insert user input before execution of query
@@ -203,22 +208,28 @@ public class DatabaseManager {
 
 
         List<Format> formatList = new ArrayList<Format>();
-        formatList.add(new Format("LagesaldoID"));
+        formatList.add(new Format("LagesaldoID", "Antal"));
 
-        String template = "%-45s%n";
+        String template = "%-45s %-45s%n";
 
         for (Format format : formatList) {
-            System.out.printf(template, format.getFirst());
+            System.out.printf(template, format.getFirst(), format.getSecond());
 
             while (rs.next())
             {
-                System.out.printf(template, rs.getString("lagersaldoID"));
                 lagersaldoID = rs.getString("lagersaldoID");
+                antal = rs.getInt("antal");
+
+                System.out.printf(template, rs.getString("lagersaldoID"), rs.getString("antal"));
             }
         }
 
         // lägg till i produktbevakning
-        addToWatchlist(lagersaldoID, mail);
+        if (antal != 0){
+            addToWatchlist(lagersaldoID, mail);
+        }
+        else
+            System.out.println("Du kan inte bevaka spel som redan finns i lager");
 
         stmt.close();
     }

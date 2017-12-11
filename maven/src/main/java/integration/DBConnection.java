@@ -1,5 +1,6 @@
 package integration;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -18,13 +19,14 @@ public class DBConnection {
         Anders URL:
         String URL = "jdbc:ucanaccess:///Users/Anders/KTH Datateknik/Datalagring IV1351/project/DatabasProjekt/access/spelRvi.accdb";
      */
-    String URL = "jdbc:ucanaccess:///Users/Anders/KTH Datateknik/Datalagring IV1351/project/DatabasProjekt/access/spelRvi.accdb";
+    String path = new java.io.File(".").getCanonicalPath();
+    String URL = "jdbc:ucanaccess:///" + path + "/src/main/java/database/spelRvi.accdb";
     String userID = "";
     String password = "password";
     Connection con;
 
 
-    public DBConnection() {
+    public DBConnection() throws IOException {
         startConnection();
     }
 
