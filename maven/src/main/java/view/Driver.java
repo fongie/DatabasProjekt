@@ -32,18 +32,22 @@ public class Driver {
             if (s.equals("1")) {
                 System.out.println("All products:\n");
                 controller.showAllProducts();
+                commandlist.showCommandList();
 
             } else if (s.equals("2")) {
                 System.out.println("Calls database and shows stores\n");
                 controller.notInStock();
+                commandlist.showCommandList();
 
             } else if (s.equals("3")) {
                 System.out.println("Calls database and adds a product to watchlist\n");
                 controller.watchProduct();
+                commandlist.showCommandList();
 
             } else if (s.equals("4")) {
             	System.out.println("XML producer shows:");
             	controller.produceXML();
+                commandlist.showCommandList();
             }
         }
     }
