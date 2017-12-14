@@ -15,34 +15,6 @@ public class DatabaseManager {
         System.out.println("Problem with the database");
     }
 
-    ArrayList<SpelVersion> fetchProducts(String spelnamn) {
-        ArrayList<SpelVersion> l = new ArrayList<SpelVersion>();
-
-        String query;
-        ResultSet rs;
-        Connection con = dbConnection.getCon();
-
-        try {
-            query = "SELECT SpelVersion.plattform, Spelserie.namn AS spelserie FROM Spel INNER JOIN SpelVersion ON Spel.spelID = SpelVersion.spel LEFT JOIN Spelserie ON SpelVersion.spelserie = Spelserie.spelserieID WHERE Spel.namn = ?";
-            ;
-            PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setString(1, spelnamn);
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                String plattform = rs.getString("plattform");
-                String spelserie = rs.getString("spelserie");
-                SpelVersion v = new SpelVersion(plattform, spelserie);
-
-                l.add(v);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return l;
-
-    }
 
 
     /**
@@ -258,7 +230,7 @@ public class DatabaseManager {
         Connection con = dbConnection.getCon();
 
         try {
-            query = "SELECT namn FROM Spelskapare INNER JOIN Spel ON Spelskapare.spelskaparID = Spel.spelskaparperson"; //iner join to prevent spelskapare who are parts of groups to show up, which would give us spelskapare in xml that have no games
+            query = "SELECT DISTINCT namn FROM Spelskapare INNER JOIN Spel ON Spelskapare.spelskaparID = Spel.spelskaparperson"; //iner join to prevent spelskapare who are parts of groups to show up, which would give us spelskapare in xml that have no games
             Statement stmt = con.createStatement();
             rs = stmt.executeQuery(query);
 
@@ -329,6 +301,36 @@ public class DatabaseManager {
         }
 
         return l;
+    }
+
+    ArrayList<SpelVersion> fetchProducts(String spelnamn) {
+        ArrayList<SpelVersion> l = new ArrayList<SpelVersion>();
+
+        String query;
+        ResultSet rs;
+        Connection con = dbConnection.getCon();
+
+        try {
+            query = "SELECT SpelVersion.sträckkod, SpelVersion.plattform, Spelserie.namn AS spelserie FROM Spel INNER JOIN SpelVersion ON Spel.spelID = SpelVersion.spel LEFT JOIN Spelserie ON SpelVersion.spelserie = Spelserie.spelserieID WHERE Spel.namn = ?";
+            ;
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, spelnamn);
+            rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+            	int streckkod = rs.getInt("sträckkod");
+                String plattform = rs.getString("plattform");
+                String spelserie = rs.getString("spelserie");
+                SpelVersion v = new SpelVersion(streckkod, plattform, spelserie);
+
+                l.add(v);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return l;
+
     }
 }
 

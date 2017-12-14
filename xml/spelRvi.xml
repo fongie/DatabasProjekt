@@ -1,186 +1,50 @@
 <?xml version="1.0" standalone="yes" encoding="ISO-8859-1"?>
 <spelRvi>
 	<Spelskapare>
-		<Namn>Willy Higinbotham</Namn>
+		<Namn>Alexey Pajitnov</Namn>
 		<Spel>
-			<Namn>Pong</Namn>
-			<Genre>Sports</Genre>
+			<Namn>Tetris</Namn>
+			<Genre>Puzzle</Genre>
 			<SpelVersion>
-				<Plattform>Atari Arcade</Plattform>
+				<Streckkod>17</Streckkod>
+				<Plattform>WE Arcade</Plattform>
 			</SpelVersion>
 		</Spel>
-	<Spelskapare>
-		<Namn>Tomohiro Nishikado</Namn>
-		<Spel>
-			<Namn>Space Invaders</Namn>
-			<Genre>Shoot em up</Genre>
-			<SpelVersion>
-				<Plattform>Taito Arcade</Plattform>
-				<Spelserie>Space Invaders</Spelserie>
-			</SpelVersion>
-		</Spel>
-		<Spel>
-			<Namn>Space Invaders Part II</Namn>
-			<SpelVersion>
-				<Plattform>Atari Arcade</Plattform>
-				<Spelserie>Space Invaders</Spelserie>
-			</SpelVersion>
-		</Spel>
-	<Spelskapare>
-		<Namn>Tomohiro Nishikado</Namn>
-		<Spel>
-			<Namn>Space Invaders</Namn>
-			<Genre>Shoot em up</Genre>
-			<SpelVersion>
-				<Plattform>Taito Arcade</Plattform>
-				<Spelserie>Space Invaders</Spelserie>
-			</SpelVersion>
-		</Spel>
-		<Spel>
-			<Namn>Space Invaders Part II</Namn>
-			<SpelVersion>
-				<Plattform>Atari Arcade</Plattform>
-				<Spelserie>Space Invaders</Spelserie>
-			</SpelVersion>
-		</Spel>
+	</Spelskapare>
 	<Spelskapare>
 		<Namn>Anders Pettersson</Namn>
 		<Spel>
 			<Namn>Asteroids</Namn>
 			<Genre>Shoot em up</Genre>
 			<SpelVersion>
+				<Streckkod>4</Streckkod>
 				<Plattform>Atari 2600</Plattform>
 			</SpelVersion>
 		</Spel>
-	<Spelskapare>
-		<Namn>Warren Robinett</Namn>
-		<Spel>
-			<Namn>Adventure</Namn>
-			<Genre>Action</Genre>
-			<Genre>Adventure</Genre>
-			<SpelVersion>
-				<Plattform>Atari Arcade</Plattform>
-			</SpelVersion>
-		</Spel>
-	<Spelskapare>
-		<Namn>Toru Iwatani</Namn>
-		<Spel>
-			<Namn>Pac-Man</Namn>
-			<Genre>Maze</Genre>
-			<SpelVersion>
-				<Plattform>Namco Arcade</Plattform>
-			</SpelVersion>
-		</Spel>
-	<Spelskapare>
-		<Namn>Shigeru Miyamoto</Namn>
-		<Spel>
-			<Namn>Donkey Kong</Namn>
-			<Genre>Platform</Genre>
-			<SpelVersion>
-				<Plattform>Nintendo Arcade</Plattform>
-				<Spelserie>Donkey Kong Arcade</Spelserie>
-			</SpelVersion>
-		</Spel>
-		<Spel>
-			<Namn>Super Mario Bros</Namn>
-			<Genre>Platform</Genre>
-			<SpelVersion>
-				<Plattform>NES</Plattform>
-			</SpelVersion>
-			<SpelVersion>
-				<Plattform>SNES</Plattform>
-			</SpelVersion>
-		</Spel>
-	<Spelskapare>
-		<Namn>Shigeru Miyamoto</Namn>
-		<Spel>
-			<Namn>Donkey Kong</Namn>
-			<Genre>Platform</Genre>
-			<SpelVersion>
-				<Plattform>Nintendo Arcade</Plattform>
-				<Spelserie>Donkey Kong Arcade</Spelserie>
-			</SpelVersion>
-		</Spel>
-		<Spel>
-			<Namn>Super Mario Bros</Namn>
-			<Genre>Platform</Genre>
-			<SpelVersion>
-				<Plattform>NES</Plattform>
-			</SpelVersion>
-			<SpelVersion>
-				<Plattform>SNES</Plattform>
-			</SpelVersion>
-		</Spel>
-	<Spelskapare>
-		<Namn>Ossian Fjordefalk</Namn>
-		<Spel>
-			<Namn>Galaga</Namn>
-			<Genre>Shoot em up</Genre>
-			<SpelVersion>
-				<Plattform>Namco Arcade</Plattform>
-			</SpelVersion>
-			<SpelVersion>
-				<Plattform>SNES</Plattform>
-			</SpelVersion>
-		</Spel>
+	</Spelskapare>
 	<Spelskapare>
 		<Namn>Dave Theurer</Namn>
 		<Spel>
 			<Namn>Serious Sam 3: BFE</Namn>
 			<Genre>Shoot em up</Genre>
 			<SpelVersion>
+				<Streckkod>10</Streckkod>
 				<Plattform>PS3</Plattform>
 			</SpelVersion>
 		</Spel>
-	<Spelskapare>
-		<Namn>John Newcomer</Namn>
-		<Spel>
-			<Namn>Joust</Namn>
-			<Genre>Action</Genre>
-			<SpelVersion>
-				<Plattform>WE Arcade</Plattform>
-			</SpelVersion>
-		</Spel>
-	<Spelskapare>
-		<Namn>Max Körlinge</Namn>
-		<Spel>
-			<Namn>Ms. Pac-Man</Namn>
-			<Genre>Maze</Genre>
-			<SpelVersion>
-				<Plattform>Midway Arcade</Plattform>
-			</SpelVersion>
-		</Spel>
+	</Spelskapare>
 	<Spelskapare>
 		<Namn>David Crane</Namn>
 		<Spel>
 			<Namn>Final Fantasy XVII</Namn>
 			<Genre>Platform</Genre>
 			<SpelVersion>
+				<Streckkod>13</Streckkod>
 				<Plattform>PS3</Plattform>
 				<Spelserie>Final Fantasy PS3</Spelserie>
 			</SpelVersion>
 		</Spel>
-	<Spelskapare>
-		<Namn>Mike Hally</Namn>
-		<Spel>
-			<Namn>Star Wars</Namn>
-			<Genre>Shoot em up</Genre>
-			<SpelVersion>
-				<Plattform>Atari Arcade</Plattform>
-			</SpelVersion>
-			<SpelVersion>
-				<Plattform>NES</Plattform>
-			</SpelVersion>
-		</Spel>
-	<Spelskapare>
-		<Namn>Alexey Pajitnov</Namn>
-		<Spel>
-			<Namn>Tetris</Namn>
-			<Genre>Puzzle</Genre>
-			<SpelVersion>
-				<Plattform>WE Arcade</Plattform>
-			</SpelVersion>
-		</Spel>
+	</Spelskapare>
 	<Spelskapare>
 		<Namn>Ed Logg</Namn>
 		<Spel>
@@ -188,98 +52,199 @@
 			<Genre>Action</Genre>
 			<Genre>Role-playing</Genre>
 			<SpelVersion>
+				<Streckkod>18</Streckkod>
 				<Plattform>Atari Arcade</Plattform>
 			</SpelVersion>
 		</Spel>
+	</Spelskapare>
+	<Spelskapare>
+		<Namn>Hironobu Sakaguchi</Namn>
+		<Spel>
+			<Namn>Final Fantasy VII</Namn>
+			<Genre>Adventure</Genre>
+			<Genre>Role-playing</Genre>
+			<SpelVersion>
+				<Streckkod>21</Streckkod>
+				<Plattform>PS1</Plattform>
+				<Spelserie>Final Fantasy PS1</Spelserie>
+			</SpelVersion>
+			<SpelVersion>
+				<Streckkod>22</Streckkod>
+				<Plattform>Steam</Plattform>
+			</SpelVersion>
+		</Spel>
+		<Spel>
+			<Namn>Final Fantasy IX</Namn>
+			<SpelVersion>
+				<Streckkod>27</Streckkod>
+				<Plattform>PS1</Plattform>
+				<Spelserie>Final Fantasy PS1</Spelserie>
+			</SpelVersion>
+			<SpelVersion>
+				<Streckkod>29</Streckkod>
+				<Plattform>PS3</Plattform>
+				<Spelserie>Final Fantasy PS3</Spelserie>
+			</SpelVersion>
+		</Spel>
+	</Spelskapare>
+	<Spelskapare>
+		<Namn>John Newcomer</Namn>
+		<Spel>
+			<Namn>Joust</Namn>
+			<Genre>Action</Genre>
+			<SpelVersion>
+				<Streckkod>11</Streckkod>
+				<Plattform>WE Arcade</Plattform>
+			</SpelVersion>
+		</Spel>
+	</Spelskapare>
+	<Spelskapare>
+		<Namn>Max Körlinge</Namn>
+		<Spel>
+			<Namn>Ms. Pac-Man</Namn>
+			<Genre>Maze</Genre>
+			<SpelVersion>
+				<Streckkod>12</Streckkod>
+				<Plattform>Midway Arcade</Plattform>
+			</SpelVersion>
+		</Spel>
+	</Spelskapare>
+	<Spelskapare>
+		<Namn>Mike Hally</Namn>
+		<Spel>
+			<Namn>Star Wars</Namn>
+			<Genre>Shoot em up</Genre>
+			<SpelVersion>
+				<Streckkod>15</Streckkod>
+				<Plattform>Atari Arcade</Plattform>
+			</SpelVersion>
+			<SpelVersion>
+				<Streckkod>24</Streckkod>
+				<Plattform>NES</Plattform>
+			</SpelVersion>
+		</Spel>
+	</Spelskapare>
+	<Spelskapare>
+		<Namn>Ossian Fjordefalk</Namn>
+		<Spel>
+			<Namn>Galaga</Namn>
+			<Genre>Shoot em up</Genre>
+			<SpelVersion>
+				<Streckkod>9</Streckkod>
+				<Plattform>Namco Arcade</Plattform>
+			</SpelVersion>
+			<SpelVersion>
+				<Streckkod>25</Streckkod>
+				<Plattform>SNES</Plattform>
+			</SpelVersion>
+		</Spel>
+	</Spelskapare>
+	<Spelskapare>
+		<Namn>Shigeru Miyamoto</Namn>
+		<Spel>
+			<Namn>Donkey Kong</Namn>
+			<Genre>Platform</Genre>
+			<SpelVersion>
+				<Streckkod>8</Streckkod>
+				<Plattform>Nintendo Arcade</Plattform>
+				<Spelserie>Donkey Kong Arcade</Spelserie>
+			</SpelVersion>
+		</Spel>
+		<Spel>
+			<Namn>Super Mario Bros</Namn>
+			<Genre>Platform</Genre>
+			<SpelVersion>
+				<Streckkod>20</Streckkod>
+				<Plattform>NES</Plattform>
+			</SpelVersion>
+			<SpelVersion>
+				<Streckkod>23</Streckkod>
+				<Plattform>SNES</Plattform>
+			</SpelVersion>
+		</Spel>
+	</Spelskapare>
+	<Spelskapare>
+		<Namn>Tim Stamper</Namn>
+		<Spel>
+			<Namn>Donkey Kong Country</Namn>
+			<SpelVersion>
+				<Streckkod>26</Streckkod>
+				<Plattform>NES</Plattform>
+				<Spelserie>Donkey Kong NES</Spelserie>
+			</SpelVersion>
+		</Spel>
+		<Spel>
+			<Namn>Donkey Kong Country 2: Diddy's Kong Quest</Namn>
+			<SpelVersion>
+				<Streckkod>28</Streckkod>
+				<Plattform>NES</Plattform>
+				<Spelserie>Donkey Kong NES</Spelserie>
+			</SpelVersion>
+		</Spel>
+	</Spelskapare>
 	<Spelskapare>
 		<Namn>Tokuro Fujiwara</Namn>
 		<Spel>
 			<Namn>Ghosts n Goblins</Namn>
 			<Genre>Platform</Genre>
 			<SpelVersion>
+				<Streckkod>19</Streckkod>
 				<Plattform>Capcom Arcade</Plattform>
 			</SpelVersion>
 		</Spel>
+	</Spelskapare>
 	<Spelskapare>
-		<Namn>Hironobu Sakaguchi</Namn>
+		<Namn>Tomohiro Nishikado</Namn>
 		<Spel>
-			<Namn>Final Fantasy VII</Namn>
+			<Namn>Space Invaders</Namn>
+			<Genre>Shoot em up</Genre>
+			<SpelVersion>
+				<Streckkod>3</Streckkod>
+				<Plattform>Taito Arcade</Plattform>
+				<Spelserie>Space Invaders</Spelserie>
+			</SpelVersion>
+		</Spel>
+		<Spel>
+			<Namn>Space Invaders Part II</Namn>
+			<SpelVersion>
+				<Streckkod>30</Streckkod>
+				<Plattform>Atari Arcade</Plattform>
+				<Spelserie>Space Invaders</Spelserie>
+			</SpelVersion>
+		</Spel>
+	</Spelskapare>
+	<Spelskapare>
+		<Namn>Toru Iwatani</Namn>
+		<Spel>
+			<Namn>Pac-Man</Namn>
+			<Genre>Maze</Genre>
+			<SpelVersion>
+				<Streckkod>6</Streckkod>
+				<Plattform>Namco Arcade</Plattform>
+			</SpelVersion>
+		</Spel>
+	</Spelskapare>
+	<Spelskapare>
+		<Namn>Warren Robinett</Namn>
+		<Spel>
+			<Namn>Adventure</Namn>
+			<Genre>Action</Genre>
 			<Genre>Adventure</Genre>
-			<Genre>Role-playing</Genre>
 			<SpelVersion>
-				<Plattform>PS1</Plattform>
-				<Spelserie>Final Fantasy PS1</Spelserie>
-			</SpelVersion>
-			<SpelVersion>
-				<Plattform>Steam</Plattform>
+				<Streckkod>5</Streckkod>
+				<Plattform>Atari Arcade</Plattform>
 			</SpelVersion>
 		</Spel>
-		<Spel>
-			<Namn>Final Fantasy IX</Namn>
-			<SpelVersion>
-				<Plattform>PS1</Plattform>
-				<Spelserie>Final Fantasy PS1</Spelserie>
-			</SpelVersion>
-			<SpelVersion>
-				<Plattform>PS3</Plattform>
-				<Spelserie>Final Fantasy PS3</Spelserie>
-			</SpelVersion>
-		</Spel>
+	</Spelskapare>
 	<Spelskapare>
-		<Namn>Hironobu Sakaguchi</Namn>
+		<Namn>Willy Higinbotham</Namn>
 		<Spel>
-			<Namn>Final Fantasy VII</Namn>
-			<Genre>Adventure</Genre>
-			<Genre>Role-playing</Genre>
+			<Namn>Pong</Namn>
+			<Genre>Sports</Genre>
 			<SpelVersion>
-				<Plattform>PS1</Plattform>
-				<Spelserie>Final Fantasy PS1</Spelserie>
-			</SpelVersion>
-			<SpelVersion>
-				<Plattform>Steam</Plattform>
+				<Streckkod>1</Streckkod>
+				<Plattform>Atari Arcade</Plattform>
 			</SpelVersion>
 		</Spel>
-		<Spel>
-			<Namn>Final Fantasy IX</Namn>
-			<SpelVersion>
-				<Plattform>PS1</Plattform>
-				<Spelserie>Final Fantasy PS1</Spelserie>
-			</SpelVersion>
-			<SpelVersion>
-				<Plattform>PS3</Plattform>
-				<Spelserie>Final Fantasy PS3</Spelserie>
-			</SpelVersion>
-		</Spel>
-	<Spelskapare>
-		<Namn>Tim Stamper</Namn>
-		<Spel>
-			<Namn>Donkey Kong Country</Namn>
-			<SpelVersion>
-				<Plattform>NES</Plattform>
-				<Spelserie>Donkey Kong NES</Spelserie>
-			</SpelVersion>
-		</Spel>
-		<Spel>
-			<Namn>Donkey Kong Country 2: Diddy's Kong Quest</Namn>
-			<SpelVersion>
-				<Plattform>NES</Plattform>
-				<Spelserie>Donkey Kong NES</Spelserie>
-			</SpelVersion>
-		</Spel>
-	<Spelskapare>
-		<Namn>Tim Stamper</Namn>
-		<Spel>
-			<Namn>Donkey Kong Country</Namn>
-			<SpelVersion>
-				<Plattform>NES</Plattform>
-				<Spelserie>Donkey Kong NES</Spelserie>
-			</SpelVersion>
-		</Spel>
-		<Spel>
-			<Namn>Donkey Kong Country 2: Diddy's Kong Quest</Namn>
-			<SpelVersion>
-				<Plattform>NES</Plattform>
-				<Spelserie>Donkey Kong NES</Spelserie>
-			</SpelVersion>
-		</Spel>
+	</Spelskapare>
 </spelRvi>

@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import integration.DatabaseManager;
 import integration.SpelEntry;
@@ -38,7 +37,6 @@ public class XMLProducer {
 		"</spelRvi>\n");
 		 */
 		System.out.println("<?xml version=\"1.0\" standalone=\"yes\" encoding=\"ISO-8859-1\"?>");
-		System.out.println("<!doctype spelRvi>");
 		System.out.println("<spelRvi>");
 
 		for (String s : spelskapare) {
@@ -55,6 +53,7 @@ public class XMLProducer {
 
 					for (SpelVersion v : l.getProducts()) {
 						System.out.println("\t\t\t<SpelVersion>");
+						System.out.println("\t\t\t\t<Streckkod>" + v.getStreckkod() + "</Streckkod>");
 						System.out.println("\t\t\t\t<Plattform>" + v.getPlattform() + "</Plattform>");
 						if (!(v.getSpelserie() == null)) {
 							System.out.println("\t\t\t\t<Spelserie>" + v.getSpelserie() + "</Spelserie>");
@@ -64,6 +63,7 @@ public class XMLProducer {
 					System.out.println("\t\t</Spel>");
 				}
 			}
+			System.out.println("\t</Spelskapare>");
 		}
 
 		System.out.println("</spelRvi>");

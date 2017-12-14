@@ -43,3 +43,15 @@
 `Vi har ändrat och lagt till det som saknats i alla punkter ovan`
 
 `Sista punkten (va vi lite osäkra på vad Nikos menade). Ändade jag så att spel 3 fick Atari Arcade som plattform, den hade en annan plattform innan. Nu har alla spelversioner i som ligger i samma serie samma plattform.`
+
+## XML Struktur
+* Fixa så att Spel grupperas inuti Spelskapare
+* Se till att inga spelserienamn inkluderar plattformen
+* Lägg till streckkod på spelversioner
+
+`Fixat så att javaprogrammet skriver ut på detta sätt nu. Lite osäker på vad som menas med att inga spelserienamn "inkluderar plattformen"? `
+
+## XQuery
+* Anpassa XQuery11 till nya strukturen
+* Fixa Xquery12
+* Fixa Xquery13 så att seriens plattform hanteras separat från seriens namn och så att streckkoden inkluderas i resultatet

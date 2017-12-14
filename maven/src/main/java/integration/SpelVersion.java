@@ -6,16 +6,20 @@ package integration;
  */
 public class SpelVersion {
 	
-	String plattform;
-	String spelserie;
+	private String plattform;
+	private String spelserie;
+	private int streckkod;
 	
-	public SpelVersion(String plattform, String spelserie) {
+	public SpelVersion(int streckkod, String plattform, String spelserie) {
 		this.plattform = plattform;
 		this.spelserie = spelserie;
+		this.streckkod = streckkod;
 	}
 	
 	public String getPlattform() { return plattform; }
 	
 	public String getSpelserie() { return spelserie; }
+	
+	public int getStreckkod() { return streckkod; }
 
 }
