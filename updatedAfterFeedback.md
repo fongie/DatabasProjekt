@@ -53,5 +53,8 @@
 
 ## XQuery
 * Anpassa XQuery11 till nya strukturen
+
+`Gjort`
+
 * Fixa Xquery12
 * Fixa Xquery13 så att seriens plattform hanteras separat från seriens namn och så att streckkoden inkluderas i resultatet

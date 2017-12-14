@@ -1,12 +1,11 @@
 <Resultat>
 { 
 
-for $s in distinct-values(//Spelskapare)
-return <Skapare> { attribute Namn { $s } }
+for $s in //Spelskapare
+return <Skapare> { attribute Namn { $s/Namn } }
 
 {
-  for $g in //Spel
-  where $g/Spelskapare = $s
+  for $g in $s/Spel
   return <Spel> { attribute Namn { $g/Namn } } </Spel> 
 } </Skapare>
 }
