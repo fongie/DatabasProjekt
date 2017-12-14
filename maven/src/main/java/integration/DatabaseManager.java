@@ -248,6 +248,31 @@ public class DatabaseManager {
     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     /**
+     * @return List of Spelskapare names as strings. Only returns Spelskapare who have made games solo (not in group)
+     */
+    public ArrayList<String> getSpelskapare() {
+    	
+        ArrayList<String> l = new ArrayList<String>();
+        String query;
+        ResultSet rs;
+        Connection con = dbConnection.getCon();
+
+        try {
+            query = "SELECT namn FROM Spelskapare INNER JOIN Spel ON Spelskapare.spelskaparID = Spel.spelskaparperson"; //iner join to prevent spelskapare who are parts of groups to show up, which would give us spelskapare in xml that have no games
+            Statement stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                String namn = rs.getString("namn");
+                l.add(namn);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return l;
+    }
+    /**
      * Get all SPEL entries from database containing what we want for our XML stuff
      *
      * @return ArrayList of SpelEntries with the necessery information
