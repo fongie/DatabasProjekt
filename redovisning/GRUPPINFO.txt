@@ -1,0 +1,12 @@
+Gruppnummer P7
+
+Gruppmedlemmar:
+
+Ossian Fjordefalk
+Anders Pettersson
+Max Körlinge
+
+
+Gruppen har i denna inlämning haft betyg E som mål. Medlemmarna kommer att, om de vill, göra individuella inlämningar senare för de högre betygen innan deadline.
+
+Om det finns frågetecken kring inlämningsfilerna så ligger allt källmaterial på https://github.com/fongie/DatabasProjekt

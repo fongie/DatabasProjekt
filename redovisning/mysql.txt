@@ -1,0 +1,233 @@
+-- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
+--
+-- Host: localhost    Database: spelRvi
+-- ------------------------------------------------------
+-- Server version	5.7.20-0ubuntu0.16.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Genre`
+--
+
+DROP TABLE IF EXISTS `Genre`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Genre` (
+  `namn` varchar(100) NOT NULL,
+  PRIMARY KEY (`namn`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Genre`
+--
+
+LOCK TABLES `Genre` WRITE;
+/*!40000 ALTER TABLE `Genre` DISABLE KEYS */;
+INSERT INTO `Genre` VALUES ('Action'),('Adventure'),('Beat em up'),('Fighting'),('First-person Shooter'),('Horror'),('Maze'),('MMO'),('MMORPG'),('Platform'),('Puzzle'),('Racing'),('Real-time Strategy'),('Role-playing'),('Run and gun'),('Shoot em up'),('Space simulation'),('Sports'),('Strategy'),('Survival'),('Turn-based Strategy'),('Visual novel');
+/*!40000 ALTER TABLE `Genre` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Innehallsklassificering`
+--
+
+DROP TABLE IF EXISTS `Innehallsklassificering`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Innehallsklassificering` (
+  `namn` varchar(100) NOT NULL,
+  `beskrivning` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`namn`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Innehallsklassificering`
+--
+
+LOCK TABLES `Innehallsklassificering` WRITE;
+/*!40000 ALTER TABLE `Innehallsklassificering` DISABLE KEYS */;
+INSERT INTO `Innehallsklassificering` VALUES ('Alcohol Reference','Reference to and/or images of alcoholic beverages'),('Animated Blood','Discolored and/or unrealistic depictions of blood'),('Blood','Depictions of blood'),('Blood and Gore','Depictions of blood or the mutilation of body parts'),('Cartoon Violence','Violent actions involving cartoon-like situations and characters. May include violence where a character is unharmed after the action has been inflicted'),('Comic Mischief','Depictions or dialogue involving slapstick or suggestive humor'),('Crude Humor','Depictions or dialogue involving vulgar antics, including “bathroom” humor'),('Drug Reference','Reference to and/or images of illegal drugs'),('Fantasy Violence','Violent actions of a fantasy nature, involving human or non-human characters in situations easily distinguishable from real life'),('Intense Violence','Graphic and realistic-looking depictions of physical conflict. May involve extreme and/or realistic blood, gore, weapons and depictions of human injury and death'),('Language','Mild to moderate use of profanity'),('Lyrics','Mild references to profanity, sexuality, violence, alcohol or drug use in music'),('Mature Humor','Depictions or dialogue involving \"adult\" humor, including sexual references'),('Nudity','Graphic or prolonged depictions of nudity'),('Partial Nudity','Brief and/or mild depictions of nudity'),('Real Gambling','Player can gamble, including betting or wagering real cash or currency'),('Sexual Content','Non-explicit depictions of sexual behavior, possibly including partial nudity'),('Sexual Themes','References to sex or sexuality'),('Sexual Violence','Depictions of rape or other violent sexual acts'),('Simulated Gambling','Player can gamble without betting or wagering real cash or currency'),('Strong Language','Explicit and/or frequent use of profanity'),('Strong Lyrics','Explicit and/or frequent references to profanity, sex, violence, alcohol or drug use in music Strong Sexual Content,Explicit and/or frequent depictions of sexual behavior, possibly including nudity Suggestive Themes,Mild provocative references or materials'),('Tobacco Reference','Reference to and/or images of tobacco products'),('Use of Alcohol','The consumption of alcoholic beverages'),('Use of Drugs','The consumption or use of illegal drugs'),('Use of Tobacco','The consumption of tobacco products'),('Violence','Scenes involving aggressive conflict. May contain bloodless dismemberment'),('Violent References','References to violent acts');
+/*!40000 ALTER TABLE `Innehallsklassificering` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Medlemskap`
+--
+
+DROP TABLE IF EXISTS `Medlemskap`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Medlemskap` (
+  `spelskapargrupp` varchar(100) NOT NULL,
+  `spelskapare` int(11) NOT NULL,
+  PRIMARY KEY (`spelskapargrupp`,`spelskapare`),
+  KEY `spelskapare` (`spelskapare`),
+  CONSTRAINT `Medlemskap_ibfk_1` FOREIGN KEY (`spelskapargrupp`) REFERENCES `Spelskapargrupp` (`namn`) ON UPDATE CASCADE,
+  CONSTRAINT `Medlemskap_ibfk_2` FOREIGN KEY (`spelskapare`) REFERENCES `Spelskapare` (`spelskaparID`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Medlemskap`
+--
+
+LOCK TABLES `Medlemskap` WRITE;
+/*!40000 ALTER TABLE `Medlemskap` DISABLE KEYS */;
+INSERT INTO `Medlemskap` VALUES ('Dynamic Modelling Group',2),('Dynamic Modelling Group',3),('Dynamic Modelling Group',4),('Dynamic Modelling Group',5),('Defender Group',10),('Defender Group',11),('PunchOut Group',18),('PunchOut Group',19),('Elite Group',21),('Elite Group',22);
+/*!40000 ALTER TABLE `Medlemskap` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Spel`
+--
+
+DROP TABLE IF EXISTS `Spel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Spel` (
+  `spelID` int(11) NOT NULL AUTO_INCREMENT,
+  `namn` varchar(100) NOT NULL,
+  `beskrivning` varchar(1000) DEFAULT NULL,
+  `spelskapargrupp` varchar(100) DEFAULT NULL,
+  `spelskaparperson` int(11) DEFAULT NULL,
+  PRIMARY KEY (`spelID`),
+  KEY `spelskapargrupp` (`spelskapargrupp`),
+  KEY `spelskaparperson` (`spelskaparperson`),
+  CONSTRAINT `Spel_ibfk_1` FOREIGN KEY (`spelskapargrupp`) REFERENCES `Spelskapargrupp` (`namn`) ON UPDATE CASCADE,
+  CONSTRAINT `Spel_ibfk_2` FOREIGN KEY (`spelskaparperson`) REFERENCES `Spelskapare` (`spelskaparID`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Spel`
+--
+
+LOCK TABLES `Spel` WRITE;
+/*!40000 ALTER TABLE `Spel` DISABLE KEYS */;
+INSERT INTO `Spel` VALUES (1,'Pong','Pong is one of the earliest arcade video games. It is a table tennis sports game featuring simple two-dimensional graphics. The game was originally manufactured by Atari. which released it in 1972. Allan Alcorn created Pong as a training exercise assigned to him by Atari co-founder Nolan Bushnell. Bushnell based the idea on an electronic ping-pong game included in the Magnavox Odyssey. which later resulted in a lawsuit against Atari. Surprised by the quality of Alcorn\'s work. Bushnell and Atari co-founder Ted Dabney decided to manufacture the game.',NULL,1),(2,'Zork','Zork is one of the earliest interactive fiction computer games. with roots drawn from the original genre game Colossal Cave Adventure. The first version of Zork was written between 1977 and 1979 using the MDL programming language on a DEC PDP-10 computer. The authors—Tim Anderson. Marc Blank. Bruce Daniels. and Dave Lebling—were members of the MIT Dynamic Modelling Group.','Dynamic Modelling Group',NULL),(3,'Space Invaders','Space Invaders is an arcade video game created by Tomohiro Nishikado and released in 1978. It was originally manufactured and sold by Taito in Japan. and was later licensed for production in the United States by the Midway division of Bally. Space Invaders is one of the earliest shooting games and the aim is to defeat waves of aliens with a laser cannon to earn as many points as possible. In designing the game. Nishikado drew inspiration from popular media: Breakout. The War of the Worlds. and Star Wars. To complete it. he had to design custom hardware and development tools.',NULL,6),(4,'Asteroids','Asteroids is an arcade space shooter released in November 1979 by Atari. Inc. and designed by Lyle Rains. Ed Logg. and Dominic Walsh. The player controls a spaceship in an asteroid field which is periodically traversed by flying saucers. The object of the game is to shoot and destroy asteroids and saucers while not colliding with either or being hit by the saucers\' counter-fire. The game becomes harder as the number of asteroids increases.',NULL,7),(5,'Adventure','Adventure is a video game for the Atari 2600 video game console. released in late 1979–1980. In the game. the player controls a square avatar whose quest is to explore an open-ended environment to find a magical chalice and return it to the golden castle. The game world is populated by roaming enemies: three dragons that can eat the avatar and a bat that randomly steals and hides items around the game world. Adventure introduced a number of innovative game elements to console games. including a playing area that spanned several different screens and enemies that continued to move even when not displayed on the screen.',NULL,8),(6,'Pac-Man','Pac-Man. stylized as PAC-MAN. is an arcade game developed by Namco and first released in Japan in May 1980.It was created by Japanese video game designer Toru Iwatani. It was licensed for distribution in the United States by Midway Games and released in October 1980. Immensely popular from its original release to the present day. Pac-Man is considered one of the classics of the medium. and an icon of 1980s popular culture. Upon its release. the game—and. subsequently. Pac-Man derivatives—became a social phenomenon that yielded high sales of merchandise and inspired a legacy in other media. such as the Pac-Man animated television series and the top-ten Buckner and Garcia hit single \"Pac-Man Fever\". Pac-Man was popular in the 1980s and 1990s and is still played in the 2010s.',NULL,9),(7,'Defender','Defender is an arcade video game developed and released by Williams Electronics in February 1981. A horizontally scrolling shoot \'em up. the game is set on an unnamed planet where the player must defeat waves of invading aliens while protecting astronauts. Development was led by Eugene Jarvis. a pinball programmer at Williams; Defender was Jarvis\' first video game project and drew inspiration from Space Invaders and Asteroids.','Defender Group',NULL),(8,'Donkey Kong','Donkey Kong is an arcade game released by Nintendo in 1981. An early example of the platform game genre. the gameplay focuses on maneuvering the main character across a series of platforms while dodging and jumping over obstacles. In the game. Mario (originally named Mr. Video and then Jumpman) must rescue a damsel in distress named Pauline (originally named Lady). from a giant ape named Donkey Kong. The hero and ape later became two of Nintendo\'s most popular and recognizable characters. Donkey Kong is one of the most important titles from the golden age of arcade video games. and is one of the most popular arcade games of all time.',NULL,12),(9,'Galaga','Galaga is a Japanese shoot-\'em-up arcade game developed and published by Namco Japan and by Midway in North America in 1981. It is the sequel to 1979\'s Galaxian. The gameplay of Galaga puts the player in control of a spacecraft which is situated at the bottom of the screen. with enemy aliens arriving in formation at the beginning of a stage. either trying to destroy. collide with. or capture the spaceship. with the player progressing every time alien forces are vanquished.',NULL,13),(10,'Serious Sam 3: BFE','Serious Sam 3 is a game.',NULL,14),(11,'Joust','Joust is an arcade game developed by Williams Electronics and released in 1982. While not the first game to feature two-player cooperative play. Joust was more successful than its predecessors and popularized the concept. The player uses a button and joystick to control a knight riding a flying ostrich. The object is to progress through levels by defeating groups of enemy knights riding buzzards.',NULL,15),(12,'Ms. Pac-Man','Ms. Pac-Man is an arcade video game from the Golden Age. It was produced by Illinois-based Midway Manufacturing corporation. the North American publisher of Pac-Man. Ms. Pac-Man was released in North America in January 1982. and is one of the most popular arcade video games of all time. This popularity led to its adoption as an official title by Namco. the creator of Pac-Man. which was released in the United States in late 1980. Ms. Pac-Man introduced a female protagonist. new maze designs. and several other improved gameplay changes over the original Pac-Man. Ms. Pac-Man became the most successful American-produced arcade game of 1981. selling 115.000 arcade cabinets.',NULL,16),(13,'Final Fantasy XVII','Soon to come: Epic conclusion to the final fantasy sage.',NULL,17),(14,'Punch-Out!!','Punch-Out!! is a boxing arcade game by Nintendo. originally released late 1983.[2][8] It was the first in a series of successful Punch-Out!! games. producing an arcade sequel known as Super Punch-Out!!. a spin-off of the series titled Arm Wrestling. a highly popular version for the NES originally known as Mike Tyson\'s Punch-Out!!. and Super Punch-Out!! for the SNES.','PunchOut Group',NULL),(15,'Star Wars','Star Wars is an arcade game produced by Atari Inc. and released in 1983. The game is a first person space combat game. simulating the attack on the Death Star from the 1977 film Star Wars. The game is composed of 3D color vector graphics. This game was developed during the Golden Age of Arcade Games and was voted the fourth-best arcade game of all time by the members of Killer List of Videogames.',NULL,20),(16,'Elite','Elite is a space trading video game. written and developed by David Braben and Ian Bell and originally published by Acornsoft for the BBC Micro and Acorn Electron computers in September 1984. Elite\'s open-ended game model. and revolutionary 3D graphics led to it being ported to virtually every contemporary home computer system. and earned it a place as a classic and a genre maker in gaming history. The game\'s title derives from one of the player\'s goals of raising their combat rating to the exalted heights of \"Elite\".','Elite Group',NULL),(17,'Tetris','Tetris (Russian: Те́трис. pronounced [ˈtɛtrʲɪs]) is a tile-matching puzzle video game. originally designed and programmed by Russian game designer Alexey Pajitnov. It was released on June 6. 1984. while he was working for the Dorodnitsyn Computing Centre of the Academy of Science of the Soviet Union in Moscow. He derived its name from the Greek numerical prefix tetra- (all of the game\'s pieces contain four segments) and tennis. Pajitnov\'s favorite sport.',NULL,23),(18,'Gauntlet','Gauntlet is a fantasy-themed hack and slash 1985 arcade game by Atari Games.Released in October 1985. Atari ultimately sold a total of 7.848 Gauntlet video game arcade cabinets. It is noted as being one of the first multi-player dungeon crawl arcade games.The core design of Gauntlet comes from Dandy. a 1983 Atari 8-bit family title. which resulted in a lawsuit.',NULL,24),(19,'Ghosts n Goblins','Ghosts \'n Goblins . is a 1985 side-scrolling platform video game developed by Capcom for video arcades and has since been released on several other platforms. It is the first game in the Ghosts \'n Goblins franchise. It was directed by Tokuro Fujiwara.',NULL,25),(20,'Super Mario Bros','Super Mario Bros. is a platform video game developed and published by Nintendo for the Nintendo Entertainment System home console. Released as a successor to the 1983 game Mario Bros.. Super Mario Bros. was released in Japan and North America in 1985. and in Europe and Australia two years later. In Super Mario Bros.. the player controls Mario and his brother. Luigi. as they travel through the Mushroom Kingdom in order to rescue Princess Toadstool from the antagonist. Bowser.',NULL,12),(21,'Final Fantasy VII','Final Fantasy VII is a role-playing video game developed by Square for the PlayStation console. Released in 1997. it is the seventh main installment in the Final Fantasy series. Published in Japan by Square. it was released in the West by Sony Computer Entertainment. becoming the first in the main series to be released in Europe. The game\'s story follows Cloud Strife. a mercenary who joins an eco-terrorist organization to stop the world-controlling megacorporation. Shinra. from using the planet\'s life essence as an energy source. Events send Cloud and his allies in pursuit of Sephiroth. a superhuman intent on destroying their planet. During the journey. Cloud builds close friendships with his party members. including Aerith Gainsborough. who holds the secret to saving their world.',NULL,26),(22,'Final Fantasy IX','Final Fantasy IX is a role-playing video game developed and published by Square for the PlayStation video game console. Originally released in 2000. it is the ninth title in the Final Fantasy series and last to debut on the original PlayStation console. In 2010. it was re-released worldwide as a PSOne Classic on the PlayStation Store compatible with PlayStation 3 and PlayStation Portable with PlayStation Vita support coming in 2012. The game introduced new features to the series like the \"Active Time Event\". \"Mognet\". and a unique equipment and skill system.',NULL,26),(23,'Donkey Kong Country','Donkey Kong Country är ett plattformsspel som släpptes till Super Nintendo 1994 och utvecklades av Rare. Den japanska versionen av spelet heter Super Donkey Kong. Spelet handlar om Donkey Kong och Diddy Kong som ska försöka återfå Donkey Kongs bananer som stulits av King K. Rool. Det är tillgängligt för en eller två deltagare.',NULL,27),(24,'Donkey Kong Country 2: Diddy\'s Kong Quest','Donkey Kong Country 2: Diddy\'s Kong Quest. plattformsspel som utvecklades av Rare till Super Nintendo. och SNES-versionen släpptes den 21 november 1995 i Japan. Spelet släpptes även till Game Boy Advance 2004.',NULL,27),(25,'Space Invaders Part II','Space Invaders Part II is a fixed shooter arcade game which was released by Taito Corporation in 1979; it utilizes one Intel 8080 microprocessor (running at: 2 MHz). with discrete components and a Texas Instruments SN-76477 for audio. It was later licensed to Midway Games for US manufacture and distribution in 1980 under the name Space Invaders Deluxe - however. the title screen on this version still says \"Space Invaders Part II\". when it is displayed during the game\'s attract sequence. This version also reduced the point value of the new \"flashing\" spaceships. from 500 points to 200.',NULL,6);
+/*!40000 ALTER TABLE `Spel` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SpelGenre`
+--
+
+DROP TABLE IF EXISTS `SpelGenre`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `SpelGenre` (
+  `genre` varchar(100) NOT NULL,
+  `spel` int(11) NOT NULL,
+  PRIMARY KEY (`genre`,`spel`),
+  KEY `spel` (`spel`),
+  CONSTRAINT `SpelGenre_ibfk_1` FOREIGN KEY (`genre`) REFERENCES `Genre` (`namn`) ON UPDATE CASCADE,
+  CONSTRAINT `SpelGenre_ibfk_2` FOREIGN KEY (`spel`) REFERENCES `Spel` (`spelID`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SpelGenre`
+--
+
+LOCK TABLES `SpelGenre` WRITE;
+/*!40000 ALTER TABLE `SpelGenre` DISABLE KEYS */;
+INSERT INTO `SpelGenre` VALUES ('Sports',1),('Adventure',2),('Shoot em up',3),('Shoot em up',4),('Action',5),('Adventure',5),('Maze',6),('Shoot em up',7),('Platform',8),('Shoot em up',9),('Shoot em up',10),('Action',11),('Maze',12),('Platform',13),('Sports',14),('Shoot em up',15),('Space simulation',16),('Puzzle',17),('Action',18),('Role-playing',18),('Platform',19),('Platform',20),('Adventure',21),('Role-playing',21);
+/*!40000 ALTER TABLE `SpelGenre` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SpelInnehallsklassificering`
+--
+
+DROP TABLE IF EXISTS `SpelInnehallsklassificering`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `SpelInnehallsklassificering` (
+  `innehallsklassificering` varchar(100) NOT NULL,
+  `spel` int(11) NOT NULL,
+  PRIMARY KEY (`innehallsklassificering`,`spel`),
+  KEY `spel` (`spel`),
+  CONSTRAINT `SpelInnehallsklassificering_ibfk_1` FOREIGN KEY (`innehallsklassificering`) REFERENCES `Innehallsklassificering` (`namn`) ON UPDATE CASCADE,
+  CONSTRAINT `SpelInnehallsklassificering_ibfk_2` FOREIGN KEY (`spel`) REFERENCES `Spel` (`spelID`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SpelInnehallsklassificering`
+--
+
+LOCK TABLES `SpelInnehallsklassificering` WRITE;
+/*!40000 ALTER TABLE `SpelInnehallsklassificering` DISABLE KEYS */;
+INSERT INTO `SpelInnehallsklassificering` VALUES ('Blood',2),('Cartoon Violence',2),('Fantasy Violence',3),('Violence',3),('Fantasy Violence',4),('Fantasy Violence',5),('Cartoon Violence',6),('Fantasy Violence',6),('Cartoon Violence',7),('Animated Blood',8),('Cartoon Violence',8),('Cartoon Violence',9),('Cartoon Violence',11),('Animated Blood',12),('Cartoon Violence',12),('Comic Mischief',13),('Animated Blood',14),('Cartoon Violence',14),('Tobacco Reference',14),('Cartoon Violence',15),('Cartoon Violence',16),('Animated Blood',18),('Fantasy Violence',18),('Cartoon Violence',20),('Alcohol Reference',21),('Animated Blood',21),('Fantasy Violence',21),('Language',21),('Partial Nudity',21),('Use of Alcohol',21),('Use of Drugs',21),('Cartoon Violence',22),('Language',22),('Partial Nudity',22),('Use of Alcohol',22),('Cartoon Violence',23),('Cartoon Violence',24),('Cartoon Violence',25);
+/*!40000 ALTER TABLE `SpelInnehallsklassificering` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Spelskapare`
+--
+
+DROP TABLE IF EXISTS `Spelskapare`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Spelskapare` (
+  `spelskaparID` int(11) NOT NULL,
+  `namn` varchar(100) NOT NULL,
+  PRIMARY KEY (`spelskaparID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Spelskapare`
+--
+
+LOCK TABLES `Spelskapare` WRITE;
+/*!40000 ALTER TABLE `Spelskapare` DISABLE KEYS */;
+INSERT INTO `Spelskapare` VALUES (1,'Willy Higinbotham'),(2,'Tim Anderson'),(3,'Marc Blank'),(4,'Bruce Daniels'),(5,'Dave Lebling'),(6,'Tomohiro Nishikado'),(7,'Anders Pettersson'),(8,'Warren Robinett'),(9,'Toru Iwatani'),(10,'Eugene Jarvis'),(11,'Larry DeMar'),(12,'Shigeru Miyamoto'),(13,'Ossian Fjordefalk'),(14,'Dave Theurer'),(15,'John Newcomer'),(16,'Max Körlinge'),(17,'David Crane'),(18,'Genyo Takeda'),(19,'Makoto Wada'),(20,'Mike Hally'),(21,'David Braben'),(22,'Ian Bell'),(23,'Alexey Pajitnov'),(24,'Ed Logg'),(25,'Tokuro Fujiwara'),(26,'Hironobu Sakaguchi'),(27,'Tim Stamper');
+/*!40000 ALTER TABLE `Spelskapare` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Spelskapargrupp`
+--
+
+DROP TABLE IF EXISTS `Spelskapargrupp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Spelskapargrupp` (
+  `namn` varchar(100) NOT NULL,
+  PRIMARY KEY (`namn`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Spelskapargrupp`
+--
+
+LOCK TABLES `Spelskapargrupp` WRITE;
+/*!40000 ALTER TABLE `Spelskapargrupp` DISABLE KEYS */;
+INSERT INTO `Spelskapargrupp` VALUES ('Defender Group'),('Dynamic Modelling Group'),('Elite Group'),('PunchOut Group');
+/*!40000 ALTER TABLE `Spelskapargrupp` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-12-11 12:01:25

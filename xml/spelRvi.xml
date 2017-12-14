@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<spelRvi>
+	<Spel>
+		<Namn>Pong</Namn>
+		<Genre>Sports</Genre>
+		<Spelskapare>Willy Higinbotham</Spelskapare>
+		<SpelVersion>
+			<Plattform>Atari Arcade</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Space Invaders</Namn>
+		<Genre>Shoot em up</Genre>
+		<Spelskapare>Tomohiro Nishikado</Spelskapare>
+		<SpelVersion>
+			<Plattform>Taito Arcade</Plattform>
+			<Spelserie>Space Invaders</Spelserie>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Asteroids</Namn>
+		<Genre>Shoot em up</Genre>
+		<Spelskapare>Anders Pettersson</Spelskapare>
+		<SpelVersion>
+			<Plattform>Atari 2600</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Adventure</Namn>
+		<Genre>Action</Genre>
+		<Genre>Adventure</Genre>
+		<Spelskapare>Warren Robinett</Spelskapare>
+		<SpelVersion>
+			<Plattform>Atari Arcade</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Pac-Man</Namn>
+		<Genre>Maze</Genre>
+		<Spelskapare>Toru Iwatani</Spelskapare>
+		<SpelVersion>
+			<Plattform>Namco Arcade</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Donkey Kong</Namn>
+		<Genre>Platform</Genre>
+		<Spelskapare>Shigeru Miyamoto</Spelskapare>
+		<SpelVersion>
+			<Plattform>Nintendo Arcade</Plattform>
+			<Spelserie>Donkey Kong Arcade</Spelserie>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Galaga</Namn>
+		<Genre>Shoot em up</Genre>
+		<Spelskapare>Ossian Fjordefalk</Spelskapare>
+		<SpelVersion>
+			<Plattform>Namco Arcade</Plattform>
+		</SpelVersion>
+		<SpelVersion>
+			<Plattform>SNES</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Serious Sam 3: BFE</Namn>
+		<Genre>Shoot em up</Genre>
+		<Spelskapare>Dave Theurer</Spelskapare>
+		<SpelVersion>
+			<Plattform>PS3</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Joust</Namn>
+		<Genre>Action</Genre>
+		<Spelskapare>John Newcomer</Spelskapare>
+		<SpelVersion>
+			<Plattform>WE Arcade</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Ms. Pac-Man</Namn>
+		<Genre>Maze</Genre>
+		<Spelskapare>Max Körlinge</Spelskapare>
+		<SpelVersion>
+			<Plattform>Midway Arcade</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Final Fantasy XVII</Namn>
+		<Genre>Platform</Genre>
+		<Spelskapare>David Crane</Spelskapare>
+		<SpelVersion>
+			<Plattform>PS3</Plattform>
+			<Spelserie>Final Fantasy PS3</Spelserie>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Star Wars</Namn>
+		<Genre>Shoot em up</Genre>
+		<Spelskapare>Mike Hally</Spelskapare>
+		<SpelVersion>
+			<Plattform>Atari Arcade</Plattform>
+		</SpelVersion>
+		<SpelVersion>
+			<Plattform>NES</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Tetris</Namn>
+		<Genre>Puzzle</Genre>
+		<Spelskapare>Alexey Pajitnov</Spelskapare>
+		<SpelVersion>
+			<Plattform>WE Arcade</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Gauntlet</Namn>
+		<Genre>Action</Genre>
+		<Genre>Role-playing</Genre>
+		<Spelskapare>Ed Logg</Spelskapare>
+		<SpelVersion>
+			<Plattform>Atari Arcade</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Ghosts n Goblins</Namn>
+		<Genre>Platform</Genre>
+		<Spelskapare>Tokuro Fujiwara</Spelskapare>
+		<SpelVersion>
+			<Plattform>Capcom Arcade</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Super Mario Bros</Namn>
+		<Genre>Platform</Genre>
+		<Spelskapare>Shigeru Miyamoto</Spelskapare>
+		<SpelVersion>
+			<Plattform>NES</Plattform>
+		</SpelVersion>
+		<SpelVersion>
+			<Plattform>SNES</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Final Fantasy VII</Namn>
+		<Genre>Adventure</Genre>
+		<Genre>Role-playing</Genre>
+		<Spelskapare>Hironobu Sakaguchi</Spelskapare>
+		<SpelVersion>
+			<Plattform>PS1</Plattform>
+			<Spelserie>Final Fantasy PS1</Spelserie>
+		</SpelVersion>
+		<SpelVersion>
+			<Plattform>Steam</Plattform>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Final Fantasy IX</Namn>
+		<Spelskapare>Hironobu Sakaguchi</Spelskapare>
+		<SpelVersion>
+			<Plattform>PS1</Plattform>
+			<Spelserie>Final Fantasy PS1</Spelserie>
+		</SpelVersion>
+		<SpelVersion>
+			<Plattform>PS3</Plattform>
+			<Spelserie>Final Fantasy PS3</Spelserie>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Donkey Kong Country</Namn>
+		<Spelskapare>Tim Stamper</Spelskapare>
+		<SpelVersion>
+			<Plattform>NES</Plattform>
+			<Spelserie>Donkey Kong NES</Spelserie>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Donkey Kong Country 2: Diddy's Kong Quest</Namn>
+		<Spelskapare>Tim Stamper</Spelskapare>
+		<SpelVersion>
+			<Plattform>NES</Plattform>
+			<Spelserie>Donkey Kong NES</Spelserie>
+		</SpelVersion>
+	</Spel>
+	<Spel>
+		<Namn>Space Invaders Part II</Namn>
+		<Spelskapare>Tomohiro Nishikado</Spelskapare>
+		<SpelVersion>
+			<Plattform>Atari Arcade</Plattform>
+			<Spelserie>Space Invaders</Spelserie>
+		</SpelVersion>
+	</Spel>
+</spelRvi>
