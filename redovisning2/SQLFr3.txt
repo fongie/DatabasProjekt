@@ -1,6 +1,4 @@
--- Fr3
-
- (group by butiksID i inre queryn ser till att det är olika butiker)
+-- Fr3 group by butiksID i inre queryn ser till att det är olika butiker. Finns även inlagd i Accessdatabasen.
 
 SELECT epost
 
