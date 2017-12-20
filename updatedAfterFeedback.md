@@ -57,4 +57,10 @@
 `Gjort`
 
 * Fixa Xquery12
+
+`Gjort`
+
 * Fixa Xquery13 så att seriens plattform hanteras separat från seriens namn och så att streckkoden inkluderas i resultatet
+
+## SQL
+* Fixa SQL 3
