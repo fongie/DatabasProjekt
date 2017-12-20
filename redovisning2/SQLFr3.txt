@@ -1,0 +1,16 @@
+-- Fr3
+
+ (group by butiksID i inre queryn ser till att det är olika butiker)
+
+SELECT epost
+
+FROM 
+	(SELECT epost, butiksID 
+	FROM Produktbevakning 
+	INNER JOIN LagerSaldo 
+	ON Produktbevakning.lagersaldoID = LagerSaldo.lagersaldoID 
+	GROUP BY butiksID, epost)
+
+GROUP BY epost
+
+HAVING COUNT(*) > 2;

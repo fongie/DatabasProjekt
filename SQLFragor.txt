@@ -19,7 +19,7 @@ WHERE namn ="Serious Sam 3: BFE" AND LagerSaldo.antal = 0;
 -- Fr3
 
 SELECT epost
-FROM Produktbevakning LEFT JOIN LagerSaldo ON Produktbevakning.lagersaldoID = Lagersaldo.lagersaldoID
+FROM (SELECT epost, butiksID FROM Produktbevakning INNER JOIN LagerSaldo ON Produktbevakning.lagersaldoID = LagerSaldo.lagersaldoID GROUP BY butiksID, epost)
 GROUP BY epost
 HAVING COUNT(*) > 2;
 
