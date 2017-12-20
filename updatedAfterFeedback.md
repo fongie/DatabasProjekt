@@ -62,5 +62,7 @@
 
 * Fixa Xquery13 så att seriens plattform hanteras separat från seriens namn och så att streckkoden inkluderas i resultatet
 
+`Gjort`
+
 ## SQL
 * Fixa SQL 3

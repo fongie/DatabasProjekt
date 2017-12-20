@@ -36,7 +36,7 @@ public class XMLProducer {
 		   </Spelskapare>
 		"</spelRvi>\n");
 		 */
-		System.out.println("<?xml version=\"1.0\" standalone=\"yes\" encoding=\"ISO-8859-1\"?>");
+		System.out.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
 		System.out.println("<spelRvi>");
 
 		for (String s : spelskapare) {

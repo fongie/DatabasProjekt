@@ -2,7 +2,7 @@
 { 
 
 for $s in distinct-values(//Spelserie)
-return <Spelserie> { attribute Namn { $s }, attribute Plattform {//SpelVersion[Spelserie = $s]/Plattform} }
+return <Spelserie> { attribute Namn { $s }, attribute Plattform {distinct-values(//SpelVersion[Spelserie = $s]/Plattform)} }
 
 {
   for $g in //SpelVersion
