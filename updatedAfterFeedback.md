@@ -66,3 +66,5 @@
 
 ## SQL
 * Fixa SQL 3
+
+`Löste det till slut med en subquery, dvs gjort`
